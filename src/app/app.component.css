@@ -1,0 +1,9 @@
+.flex-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.flex-nav button {
+  outline: 1px solid black;
+}
