@@ -1,0 +1,41 @@
+
+<div class="forms">
+
+  <div class="form-box">
+
+    <div *ngIf="user">
+      <h2>User</h2>
+      <p>{{user.email}}</p>
+      <div class="btn">
+        <input type="button" value="Log Out" (click)="logout()">
+      </div>
+    </div>
+
+    <div *ngIf ="!user">
+      <h2>Log In</h2>
+      <div class="form">
+        <label for="email">Email:</label>
+        <input type="text" id="email" #email>
+        <label for="password">Password:</label>
+        <input type="password" id="password" #password>
+      </div>
+      <input type="button" value="Log In" (click)="login(email.value, password.value); email.value=''; password.value=''">
+    </div>
+  </div>
+
+  <div class="form-box">
+    <h2>Register</h2>
+    <div class="form">
+      <label for="createEmail">Email:</label>
+      <input type="text" id="createEmail" #createEmail>
+      <label for="createPassword">Password:</label>
+      <input type="password" id="createPassword" #createPassword>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" #confirmPassword>
+    </div>
+    <input type="button" value="Register" (click)="register(createEmail.value, createPassword.value, confirmPassword.value); createEmail.value=''; createPassword.value=''; confirmPassword.value=''; ">
+    <div class="message">
+      {{ message }}
+    </div>
+  </div>
+</div>
