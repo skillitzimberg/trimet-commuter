@@ -1,25 +1,38 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  outline: 1px solid black;
+  justify-content: center;
+}
+
+.scale-font {
+  font-size: 20vh;
+}
+
+#morning {
+  background: linear-gradient(to bottom right, #FFBC31 20%, #E990A5 100%);
+}
+
+#evening {
+  background: linear-gradient(to bottom left, #E990A5 20%, #8631FF 100%);
+}
+
 .flex-div {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   outline: 1px solid black;
-  align-items: center;
-  /* justify-content: center; */
-}
-
-.flex-div-child {
-  outline: 1px solid black;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 10px;
   text-align: center;
-  width: 80%;
+  width: 100%;
   height: 50vh;
-  background-color: tan;
-  justify-content: start;
 }
 
-h1, input {
-  outline: 1px solid black;
-  align-self: center;
+.flex-item {
+  outline: 1px solid red;
 }
+
+h1, p, input {
+  display: inline-block;
+  border: 1px solid black;
+}
+
