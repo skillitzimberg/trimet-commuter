@@ -1,0 +1,36 @@
+.forms {
+  display: flex;
+}
+
+.form-box {
+  height: 12em;
+  display: inline-block;
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: #f8f8f8;
+  border: 1px solid #686868;
+  border-radius: 5px;
+}
+
+.form-box h2 {
+  margin: 0.7em 0em;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.form * {
+  margin: 0.2em;
+}
+
+.form-box input[type=button] {
+  display: inline-block;
+  padding: 0.2em;
+  margin: 0.5em;
+  background-color: #f0f0f0;
+  border: 1px solid #686868;
+  border-radius: 3px;
+  font-size: 0.8em;
+}

@@ -15,8 +15,16 @@ export class AuthService {
     this.user = afAuth.authState;
   }
 
-  login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  register(email: string, password: string) {
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+      console.log('error code:', error.code);
+      console.log('error message:', error.message);
+
+    });
+  }
+
+  login(email: string, password: string) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   logout() {
