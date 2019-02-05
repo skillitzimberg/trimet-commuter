@@ -1,0 +1,11 @@
+.nav {
+  box-shadow: 3px;
+  min-width: 330px;
+  width: 33%;
+  background-color: white;
+  border-right: 1px solid rgb(193, 193, 193);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}

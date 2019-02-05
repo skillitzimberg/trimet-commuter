@@ -4,6 +4,8 @@ import { FirstStartComponent } from './first-start/first-start.component';
 import { MainComponent } from './main/main.component';
 
 
+
+
 const routes: Routes = [
   {path: '', component: FirstStartComponent },
   {path: 'main', component: MainComponent }

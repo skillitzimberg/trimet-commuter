@@ -10,13 +10,15 @@ import { FirstStartComponent } from './first-start/first-start.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database'; // can remove?
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth'; // can remove?
 
-import { auth } from 'firebase/app';
+import { auth } from 'firebase/app'; // can remove?
 import { masterFirebaseConfig } from './api-keys';
 import { LoginComponent } from './login/login.component';
+import { PancakeMenuComponent } from './pancake-menu/pancake-menu.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -31,7 +33,9 @@ export const firebaseConfig = {
     AppComponent,
     MainComponent,
     FirstStartComponent,
-    LoginComponent
+    LoginComponent,
+    PancakeMenuComponent,
+    SideBarComponent
   ],
   imports: [
     MaterialUiModule,
