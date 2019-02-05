@@ -22,13 +22,4 @@ export class FirstStartComponent implements OnInit {
   saveEveningStop(stopId) {
     this.userDataService.saveEveningStop(parseInt(stopId));
   }
-
-  saveQuickStop(stopId) {
-    this.userDataService.saveQuickStop(parseInt(stopId));
-  }
-
-  saveRecentStop(stopId) {
-    this.userDataService.saveRecentStop(parseInt(stopId));
-  }
-
 }

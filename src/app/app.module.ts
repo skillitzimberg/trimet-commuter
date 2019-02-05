@@ -17,6 +17,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { masterFirebaseConfig } from './api-keys';
 import { LoginComponent } from './login/login.component';
+import { TestComponent } from './test/test.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -31,7 +32,8 @@ export const firebaseConfig = {
     AppComponent,
     MainComponent,
     FirstStartComponent,
-    LoginComponent
+    LoginComponent,
+    TestComponent
   ],
   imports: [
     MaterialUiModule,
