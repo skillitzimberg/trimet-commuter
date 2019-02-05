@@ -9,16 +9,36 @@ import { AuthService } from './auth.service';
 
 export class UserDataService {
   localStorageName: string = "trimetCommuterData";
+  private userDataObs: Observable<{}>;
   userData;
+  uid: string;
 
-  constructor() {
+  constructor(private authService: AuthService, private db: AngularFireDatabase) {
     this.init();
    }
 
    init() {
      this.userData = this.initializeUserData();
      this.userData = this.loadFromLocalStorage(this.userData);
-     //??? subscribe to observable for changes to database
+     this.authService.user.subscribe(user => {
+       this.uid = user && user.uid;
+       if(user) {
+         this.userDataObs = this.db.object(this.uid).valueChanges();
+         const subscription = this.userDataObs.subscribe((data) => {
+           if(data) {
+             this.userData = data;
+             this.saveToLocalStorage(this.userData);
+           } else {
+             this.db.object(this.uid).set(this.userData);
+           }
+           subscription.unsubscribe();
+         });
+       } else {
+         this.userDataObs = new Observable((observer) => {
+           observer.next(this.userData);
+         });
+       }
+     })
    }
 
    initializeUserData() {
@@ -65,15 +85,20 @@ export class UserDataService {
 
    saveRecentStop(stopId) {
      const recentSize = 5;
+     if (!this.userData.stops.recent) {
+       this.userData.stops.recent = [];
+     }
+
      if(this.userData.stops.recent.unshift(stopId) > recentSize) {
-       this.userData.stops.recent = recentSize;
+       this.userData.stops.recent.length = recentSize;
      }
      this.updateUserData();
    }
 
    updateUserData() {
      this.saveToLocalStorage(this.userData);
-     console.log("update", this.userData);
-     //??? update observable to go into database
+     if(this.uid) {
+       this.db.object(this.uid).set(this.userData);
+     }
    }
 }
