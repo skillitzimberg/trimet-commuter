@@ -11,24 +11,47 @@ import { UserDataService } from '../user-data.service';
   providers: [AuthService, UserDataService]
 })
 export class TestComponent implements OnInit {
-  private user;
-  private userData = this.userDataService.initializeUserData();
-  private userDataObservable: Observable<{}>;
+  morningId: number;
+  eveningId: number;
+  quickId: number;
+  recentIds: number[];
 
   constructor(public authService: AuthService, public userDataService: UserDataService) {
-    authService.user.subscribe((user) => {
-      this.user = user;
-      console.log("test user", this.user);
+    this.init();
+  }
 
-      this.userDataObservable = userDataService.getUserDataObsrvable();
-      this.userDataObservable.subscribe((userData) => {
-        this.userData = userData;
-        console.log("test data", this.userData)
-      });
+  init() {
+    this.authService.user.subscribe((user) => {
+      if(user) {
+        this.userDataService.userData.subscribe((userData) => {
+          if(userData) {
+            this.morningId = userData['morning'];
+            this.eveningId = userData['evening'];
+            this.quickId = userData['quick'];
+            this.recentIds = userData['recent'];
+          }
+        });
+      } else {
+        this.morningId = undefined;
+        this.eveningId = undefined;
+        this.quickId = undefined;
+        this.recentIds = undefined;
+      }
     });
   }
 
   ngOnInit() {
   }
 
+  saveMorningStop(stopId) {
+    this.userDataService.saveMorningStop(parseInt(stopId));
+  }
+
+  saveEveningStop(stopId) {
+    this.userDataService.saveEveningStop(parseInt(stopId));
+  }
+
+  saveQuickStop(stopId) {
+    this.userDataService.saveQuickStop(parseInt(stopId));
+  }
 }
