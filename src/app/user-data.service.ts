@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 
 export class UserDataService {
   localStorageName: string = "trimetCommuterData";
-  private userDataObs: Observable<{}>;
+  userDataObs: Observable<{}>;
   userData;
   uid: string;
 
@@ -20,6 +20,9 @@ export class UserDataService {
    init() {
      this.userData = this.initializeUserData();
      this.userData = this.loadFromLocalStorage(this.userData);
+     this.userDataObs = new Observable((observer) => {
+       observer.next(this.userData);
+     });
      this.authService.user.subscribe(user => {
        this.uid = user && user.uid;
        if(user) {
@@ -50,6 +53,10 @@ export class UserDataService {
          recent: []
        }
      };
+   }
+
+   getUserDataObsrvable() {
+     return this.userDataObs;
    }
 
    loadFromLocalStorage(userData) {
