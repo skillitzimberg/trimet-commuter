@@ -1,17 +1,18 @@
 <div class='flex-container'>
-  
+
   <div id='morning' class='flex-div'>
     <div class='flex-item'>
       <h1 class='scale-font'>AM</h1>
-      <input type="text">
+      <input type="number" #morningStopId>
+      <button type="submit" (click)="saveMorningStop(morningStopId.value); morningStopId.value=''" name="morningStopId">Save Stop</button>
     </div>
   </div>
 
   <div id='evening' class='flex-div'>
-    <!-- <div class='flex-item'> -->
-        <h1 class='scale-font'>PM</h1>
-        <!-- <p>paragraph</p> -->
-        <input type="text">
-      </div>
-  <!-- </div> -->
+    <div class="flex-item">
+      <h1 class='scale-font'>PM</h1>
+      <input type="number" #eveningStopId>
+      <button type="submit" (click)="saveEveningStop(eveningStopId.value); eveningStopId.value=''" name="eveningStopId">Save Stop</button>
+    </div>
+  </div>
 </div>
