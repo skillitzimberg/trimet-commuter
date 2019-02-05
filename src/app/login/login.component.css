@@ -1,36 +1,56 @@
-.forms {
+button {
+  cursor: pointer;
+  border-radius: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  font-size: 1.2em;
+  background: rgb(237, 237, 237);
+  width: 100%;
+  line-height: 2em;   
+}
+
+input {
+  width: 100%;
+  display: block;
+  border-radius: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  font-size: 1.2em;
+  background: rgb(237, 237, 237);
+  line-height: 2em;   
+  font-size: 1.2em;
+  background-color: white;
+  cursor: text;
+  padding: 0 .8em;
+  border-style: inset;
+  margin: .6em 0;
+}
+
+.wrapper {
+  /* position: relative; */
+  /* bottom: 0; */
+  /* position: relative */
   display: flex;
+  flex-direction: column;
 }
 
-.form-box {
-  height: 12em;
-  display: inline-block;
-  padding: 0.5em;
-  margin: 0.5em;
-  background-color: #f8f8f8;
-  border: 1px solid #686868;
-  border-radius: 5px;
+.auth-action span {
+  color: #6565a5;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dashed;
 }
 
-.form-box h2 {
-  margin: 0.7em 0em;
+
+
+.logged-in {
+  margin-top: auto;
+  text-align: center;
 }
 
-.form {
-  display: grid;
-  grid-template-columns: auto auto;
+
+.user-register {
+  
 }
 
-.form * {
-  margin: 0.2em;
-}
+.user-login {
 
-.form-box input[type=button] {
-  display: inline-block;
-  padding: 0.2em;
-  margin: 0.5em;
-  background-color: #f0f0f0;
-  border: 1px solid #686868;
-  border-radius: 3px;
-  font-size: 0.8em;
 }

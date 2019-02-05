@@ -1,41 +1,40 @@
+<div class="wrapper">
 
-<div class="forms">
+  <!-- <div class="message">
+    {{ message }}
+  </div> -->
 
-  <div class="form-box">
-
-    <div *ngIf="user">
-      <h2>User</h2>
-      <p>{{user.email}}</p>
-      <div class="btn">
-        <input type="button" value="Log Out" (click)="logout()">
-      </div>
-    </div>
-
-    <div *ngIf ="!user">
-      <h2>Log In</h2>
-      <div class="form">
-        <label for="email">Email:</label>
-        <input type="text" id="email" #email>
-        <label for="password">Password:</label>
-        <input type="password" id="password" #password>
-      </div>
-      <input type="button" value="Log In" (click)="login(email.value, password.value); email.value=''; password.value=''">
-    </div>
+  <div *ngIf="!user" class="auth-action">
+    <p>
+      <span (click)="showLogin()">Sign On</span> | 
+      <span (click)="showRegister()">Register</span>
+    </p>
   </div>
+  
+  <div *ngIf="user" class="logged-in">
+    <button (click)="logout()">Log Out</button>
+    <p>Logged in as: {{ user.email }}</p>
+  </div>
+  
+  <div class="user-login" *ngIf ="showLoginDiv && !user">
+    <h2>Log In</h2>
 
-  <div class="form-box">
+    <input type="text" id="email" #email placeholder="Email">
+    <input type="password" id="password" #password placeholder="Password">
+
+    <button (click)="login(email.value, password.value); email.value=''; password.value=''">Log in</button>
+  </div>
+  
+  <div class="user-register" *ngIf="showRegisterDiv && !user">
     <h2>Register</h2>
-    <div class="form">
-      <label for="createEmail">Email:</label>
-      <input type="text" id="createEmail" #createEmail>
-      <label for="createPassword">Password:</label>
-      <input type="password" id="createPassword" #createPassword>
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" id="confirmPassword" #confirmPassword>
-    </div>
-    <input type="button" value="Register" (click)="register(createEmail.value, createPassword.value, confirmPassword.value); createEmail.value=''; createPassword.value=''; confirmPassword.value=''; ">
-    <div class="message">
-      {{ message }}
-    </div>
+    <input type="text" id="createEmail" #createEmail placeholder="Email">
+    <input type="password" id="createPassword" #createPassword placeholder="Password">
+    <input type="password" id="confirmPassword" #confirmPassword placeholder="Re-enter password">
+    <button (click)="register(createEmail.value, createPassword.value, confirmPassword.value); createEmail.value=''; createPassword.value=''; confirmPassword.value=''; ">Register</button>
   </div>
+
+
+
 </div>
+
+

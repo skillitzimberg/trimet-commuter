@@ -15,9 +15,18 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
+  sideBarMessage;
+  // messageFromLogin;
+
   @Output() toggleNav = new EventEmitter()
 
   closeNav() {
     this.toggleNav.emit();
   }
+
+  messageFromLogin(msg) {
+    this.sideBarMessage = msg;
+  }
+
+
 }

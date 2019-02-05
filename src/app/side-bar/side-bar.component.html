@@ -1,11 +1,19 @@
-<div class="nav">
-  <button (click)="closeNav()">close</button>
+<div class="sidebar">
 
-  <p>
-    side-bar works!
-  </p>
+  <button class="close" (click)="closeNav()">
+    <span >&times;</span>
+  </button>
 
-  <app-login></app-login>
+  <div class="sidebar-components">
+
+    <div class="alert" *ngIf="sideBarMessage">
+      {{ sideBarMessage }}
+    </div>
+
+    <app-login (messageNotification)="messageFromLogin($event)"></app-login>
+
+  </div>
+
 
 </div>
 
