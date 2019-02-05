@@ -15,7 +15,6 @@ export class LoginComponent {
   constructor( public authService: AuthService ) {
     this.authService.user.subscribe(user => {
       this.user = user;
-      console.log('user:', user);
     });
   }
 
