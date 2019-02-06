@@ -20,7 +20,7 @@ export class Arrival {
         const estimatedTime = new Date(params.estimated).getTime();
         const arrivalTotal = (estimatedTime - queryTime) / msPerMin;
         let arrivalMin = Math.floor(arrivalTotal);
-        let arrivalSec = 15 * Math.round(4 * (arrivalTotal - arrivalMin));
+        let arrivalSec = 5 * Math.round(12 * (arrivalTotal - arrivalMin));
         if (arrivalSec === 60) {
           arrivalSec = 0;
           arrivalMin += 1;

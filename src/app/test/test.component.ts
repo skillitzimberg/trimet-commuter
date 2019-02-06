@@ -17,6 +17,7 @@ export class TestComponent implements OnInit {
   quickId: number;
   recentIds: number[];
   stop: Stop;
+  subscription;
 
   constructor( public authService: AuthService, public userDataService: UserDataService, public stopService: StopService ) {
     this.init();
@@ -57,26 +58,33 @@ export class TestComponent implements OnInit {
     this.userDataService.saveQuickStop(parseInt(stopId));
   }
 
-  getMorningData() {
-    this.stopService.getMorningData().subscribe((stop) => {
-      this.stop = stop;
-      console.log("stop", this.stop);
+  clearSubscription() {
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
+  }
+
+  subscribeToStop(observer) {
+    this.subscription = observer.subscribe((promise) => {
+      promise.then((stop) => {
+        this.stop = stop;
+      })
     });
   }
 
-  // getEveningData() {
-  //   let promise = this.stopService.getEveningData();
-  //   promise.then((stop) => {
-  //     this.stop = stop;
-  //     console.log("test stop", this.stop);
-  //   });
-  // }
-  //
-  // getQuickData() {
-  //   let promise = this.stopService.getQuickData();
-  //   promise.then((stop) => {
-  //     this.stop = stop;
-  //     console.log("test stop", this.stop);
-  //   });
-  // }
+  getMorningData() {
+    this.clearSubscription();
+    this.subscribeToStop(this.stopService.getMorningData());
+  }
+
+  getEveningData() {
+    this.clearSubscription();
+    this.subscribeToStop(this.stopService.getEveningData());
+  }
+
+  getQuickData() {
+    this.clearSubscription();
+    this.subscribeToStop(this.stopService.getQuickData());
+  }
 }

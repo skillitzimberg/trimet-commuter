@@ -56,79 +56,47 @@ export class StopService {
   getStopData(stopId) {
     const apiURL = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&minutes=30&json=true`;
 
+    const updateInterval = 1000;
+    const trimetInterval = 60000;
+    let trimetLastTime = 0;
     let trimetResponse = {};
-    const now = (new Date()).getTime();
-    return this.http.get(apiURL, {responseType: 'json'}).pipe(
-      map((data) => {
-        trimetResponse = data;
-        return this.createStop(now, trimetResponse);
-      }));
-        // tap(
-        //   data => {
-        //     trimetResponse = JSON.parse(data);
-        //     return this.createStop(now, trimetResponse)
-        //   },
-        //   error => this.createStop(now, {})
-        // )
-    }
 
-    // const updateInterval = 2000;
-    // const trimetInterval = 5000;
-    // let trimetLastTime = 0;
-    // let trimetResponse = {};
-    //
-    // const counter = interval(updateInterval);
-    // const updateStop = map((count) => {
-    //   const now = (new Date()).getTime();
-    //   return this.http.get(apiURL, {responseType: 'text'})
-    //   .pipe(
-    //     tap(
-    //       data => {
-    //         trimetResponse = data;
-    //         return this.createStop(now, data)
-    //       },
-    //       error => this.createStop(now, {})
-    //     )
-    //   );
-    // });
+    const counter = interval(updateInterval);
+    const updateStop = map((count) => {
+      const now = (new Date()).getTime();
+      const interval = now - trimetLastTime;
+      if(interval >= trimetInterval) {
+        trimetLastTime = now;
+        console.log("trimet");
+        return fetch(apiURL).then((response) => {
+          return response.json();
+        }).then((responseData) => {
+          trimetResponse = responseData;
+          return this.createStop(now, responseData);
+        });
+      } else {
+        console.log("updateStop");
+        return Promise.resolve(this.createStop(now, trimetResponse));
+      }
+    });
 
-    // const updateStop = map((count) => {
-    //   const now = (new Date()).getTime();
-    //   const interval = now - trimetLastTime;
-    //   if(interval >= trimetInterval) {
-    //     trimetLastTime = now;
-    //
-    //     return this.http.get(apiURL, {responseType: 'text'})
-    //     .pipe(
-    //       tap(
-    //         data => {
-    //           trimetResponse = data;
-    //           return this.createStop(now, data)
-    //         },
-    //         error => this.createStop(now, {})
-    //       )
-    //     );
-    //   } else {
-    //     // update with latest time
-    //     return new Stop([], { locid: count});
-    //   }
-    // });
-
-    // return updateStop(counter);
+    return updateStop(counter);
+  }
 
   createStop(currentTime, data) {
     const arrivals: Arrival[] = [];
 
-    console.log("data", data);
     if (data && data.resultSet) {
       if (data.resultSet.arrival) {
         data.resultSet.arrival.forEach((arrivalData) => {
           arrivals.push(new Arrival(currentTime, arrivalData));
         });
       }
-    }
 
-    let stopData = data.resultSet.location[0] || {};
-    return new Stop(arrivals, stopData);
+      if (data.resultSet.location) {
+        let stopData = data.resultSet.location[0] || {};
+        return new Stop(arrivals, stopData);
+        }
+    }
   }
 }
