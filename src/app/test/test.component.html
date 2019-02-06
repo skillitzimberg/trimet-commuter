@@ -33,12 +33,19 @@
 
 </div>
 <div>
+  <div *ngIf="stop" class="">
+    <div>
+      <span class="stopheader">{{stop.name}}</span>
+      <span class="stopheader">Stop: {{stop.stopId}}</span>
+      <span class="stopheader">{{stop.direction}}</span>
+    </div>
   <div class="arrival-list">
-    <div class="arrival" *ngFor="let arrival of arrivals">
+    <div class="arrival" *ngFor="let arrival of stop.arrivals">
       <span>{{arrival.shortSign}}</span>
       <span>Scheduled: {{arrival.scheduled}}</span>
       <span>{{arrival.arrival}}</span>
       <span>{{arrival.late}}</span>
     </div>
   </div>
+</div>
 </div>

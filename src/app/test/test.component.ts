@@ -3,7 +3,7 @@ import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service';
 import { StopService } from '../stop.service';
 import { Arrival } from '../models/arrival.model'
-
+import { Stop } from '../models/stop.model'
 
 @Component({
   selector: 'app-test',
@@ -16,7 +16,7 @@ export class TestComponent implements OnInit {
   eveningId: number;
   quickId: number;
   recentIds: number[];
-  arrivals: Arrival[];
+  stop: Stop;
 
   constructor( public authService: AuthService, public userDataService: UserDataService, public stopService: StopService ) {
     this.init();
@@ -59,9 +59,9 @@ export class TestComponent implements OnInit {
 
   getMorningData() {
     let promise = this.stopService.getMorningData();
-    promise.then((arrivals) => {
-      this.arrivals = arrivals;
-      console.log("test arr", this.arrivals);
+    promise.then((stop) => {
+      this.stop = stop;
+      console.log("test stop", this.stop);
     });
   }
 }

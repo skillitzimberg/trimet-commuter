@@ -20,3 +20,8 @@
 .arrival span {
   margin: 0.2em 0.6em;
 }
+
+.stopheader {
+  margin: 0 10px 5px;
+  font-size: 1.3em;
+}

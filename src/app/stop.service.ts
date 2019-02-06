@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { UserDataService } from './user-data.service';
 import { trimetApiKey } from './api-keys';
-import { Arrival } from './models/arrival.model'
+import { Arrival } from './models/arrival.model';
+import { Stop } from './models/stop.model';
 
 @Injectable({
   providedIn: 'root'
@@ -55,13 +56,21 @@ export class StopService {
     }).then((responseData) => {
       console.log('resp', responseData);
       const arrivals: Arrival[] = [];
-      if (responseData && responseData.resultSet && responseData.resultSet.arrival) {
-        const queryTime = (new Date(responseData.resultSet.queryTime)).getTime();
-        responseData.resultSet.arrival.forEach((data) => {
-          arrivals.push(new Arrival(queryTime, data));
-        });
+      let currentStop: Stop;
+      if (responseData && responseData.resultSet) {
+        if (responseData.resultSet.arrival) {
+          const queryTime = (new Date(responseData.resultSet.queryTime)).getTime();
+          responseData.resultSet.arrival.forEach((arrivalData) => {
+            arrivals.push(new Arrival(queryTime, arrivalData));
+          });
+        }
+
+        let stopData = responseData.resultSet.location[0] || {};
+        console.log("stopData", stopData);
+        currentStop = new Stop(arrivals, stopData);
+
       }
-      return arrivals;
+      return currentStop;
     });
   }
 }
