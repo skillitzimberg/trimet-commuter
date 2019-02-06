@@ -10,6 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/auth'; // can remove???
 
 // import { MaterialUiModule } from './material-ui/material-ui.module' DEPRECATED
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -44,7 +45,7 @@ export const firebaseConfig = {
   ],
   imports: [
     // MaterialUiModule, // DEPRICATED: remove ALL contents from: ./material-ui/
-    
+
     // MatIconModule, //maybe??
     MatExpansionModule,
     BrowserModule,
@@ -52,7 +53,8 @@ export const firebaseConfig = {
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
 
   ],
   providers: [],
