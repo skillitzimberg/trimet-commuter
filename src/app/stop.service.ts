@@ -4,11 +4,10 @@ import { UserDataService } from './user-data.service';
 import { trimetApiKey } from './api-keys';
 import { Arrival } from './models/arrival.model';
 import { Stop } from './models/stop.model';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { interval } from 'rxjs';
-import { from } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap, flatMap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -20,7 +19,7 @@ export class StopService {
   quickId: number;
 
 
-  constructor(public authService: AuthService, public userDataService: UserDataService) {
+  constructor(public authService: AuthService, public userDataService: UserDataService, private http: HttpClient) {
     this.init();
   }
 
@@ -57,37 +56,70 @@ export class StopService {
   getStopData(stopId) {
     const apiURL = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&minutes=30&json=true`;
 
-    const updateInterval = 1000;
-    const trimetInterval = 5000;
-    let trimetLastTime = 0;
     let trimetResponse = {};
+    const now = (new Date()).getTime();
+    return this.http.get(apiURL, {responseType: 'json'}).pipe(
+      map((data) => {
+        trimetResponse = data;
+        return this.createStop(now, trimetResponse);
+      }));
+        // tap(
+        //   data => {
+        //     trimetResponse = JSON.parse(data);
+        //     return this.createStop(now, trimetResponse)
+        //   },
+        //   error => this.createStop(now, {})
+        // )
+    }
 
-    const counter = interval(updateInterval);
-    const updateStop = map((count) => {
-      const now = (new Date()).getTime();
-      const interval = now - trimetLastTime;
-      if(interval >= trimetInterval) {
-        trimetLastTime = now;
-        return fetch(apiURL).then((response) => {
-          return response.json();
-        }).then((responseData) => {
-          console.log("trimet", responseData);
-          trimetResponse = responseData;
-          return this.createStop(now, responseData);
-        });
-      } else {
-        // update with latest time
-        return new Stop([], { locid: count});
-      }
-    });
+    // const updateInterval = 2000;
+    // const trimetInterval = 5000;
+    // let trimetLastTime = 0;
+    // let trimetResponse = {};
+    //
+    // const counter = interval(updateInterval);
+    // const updateStop = map((count) => {
+    //   const now = (new Date()).getTime();
+    //   return this.http.get(apiURL, {responseType: 'text'})
+    //   .pipe(
+    //     tap(
+    //       data => {
+    //         trimetResponse = data;
+    //         return this.createStop(now, data)
+    //       },
+    //       error => this.createStop(now, {})
+    //     )
+    //   );
+    // });
 
-    return updateStop(counter);
-  }
+    // const updateStop = map((count) => {
+    //   const now = (new Date()).getTime();
+    //   const interval = now - trimetLastTime;
+    //   if(interval >= trimetInterval) {
+    //     trimetLastTime = now;
+    //
+    //     return this.http.get(apiURL, {responseType: 'text'})
+    //     .pipe(
+    //       tap(
+    //         data => {
+    //           trimetResponse = data;
+    //           return this.createStop(now, data)
+    //         },
+    //         error => this.createStop(now, {})
+    //       )
+    //     );
+    //   } else {
+    //     // update with latest time
+    //     return new Stop([], { locid: count});
+    //   }
+    // });
+
+    // return updateStop(counter);
 
   createStop(currentTime, data) {
     const arrivals: Arrival[] = [];
-    let stop: Stop;
 
+    console.log("data", data);
     if (data && data.resultSet) {
       if (data.resultSet.arrival) {
         data.resultSet.arrival.forEach((arrivalData) => {

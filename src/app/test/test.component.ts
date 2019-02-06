@@ -60,7 +60,7 @@ export class TestComponent implements OnInit {
   getMorningData() {
     this.stopService.getMorningData().subscribe((stop) => {
       this.stop = stop;
-      console.log("morning stop", this.stop);
+      console.log("stop", this.stop);
     });
   }
 
