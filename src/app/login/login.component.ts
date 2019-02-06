@@ -10,6 +10,8 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   @Output() messageNotification = new EventEmitter()
+  @Output() userLoggedOn = new EventEmitter();
+
   user;
 
   showRegisterDiv: boolean = false;
@@ -20,6 +22,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe(user => {
       this.user = user;
+
+      this.userLoggedOn.emit(this.user);
     });
 
     // this.messageNotification.subscribe(console.log('message changed'))
@@ -37,11 +41,15 @@ export class LoginComponent implements OnInit {
   login(email: string, password: string) {
     this.authService.login(email, password);
     this.messageNotification.emit(`You've successfully logged on`);
+
+    this.userLoggedOn.emit(this.user);
   }
 
   logout() {
     this.authService.logout();
     this.messageNotification.emit(`You're now logged out.`);
+
+    this.userLoggedOn.emit(null);
   }
 
   showRegister() {

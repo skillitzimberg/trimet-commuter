@@ -1,11 +1,15 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
+
 import { LoginComponent } from '../login/login.component';
+import { RecentSearchComponent } from '../recent-search/recent-search.component';
+
 // import { from, Observable } from 'rxjs/observable'
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RecentSearchComponent
   ]
 })
 
@@ -16,6 +20,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class SideBarComponent implements OnInit{
   sideBarMessage;
+  user;
 
   ngOnInit() {
     // this.sideBarMessage.subscribe(x=> console.log('change!'))
@@ -32,6 +37,12 @@ export class SideBarComponent implements OnInit{
     // this.sideBarMessage = from(msg)
     this.sideBarMessage = msg;
   }
+
+  setUser(user) {
+    this.user = user;
+    // console.log(user)
+  }
+
 
 
 }

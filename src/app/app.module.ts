@@ -19,6 +19,7 @@ import { masterFirebaseConfig } from './api-keys';
 import { LoginComponent } from './login/login.component';
 import { PancakeMenuComponent } from './pancake-menu/pancake-menu.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { RecentSearchComponent } from './recent-search/recent-search.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     FirstStartComponent,
     LoginComponent,
     PancakeMenuComponent,
-    SideBarComponent
+    SideBarComponent,
+    RecentSearchComponent
   ],
   imports: [
     MaterialUiModule,

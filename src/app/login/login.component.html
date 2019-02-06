@@ -1,8 +1,9 @@
 <div class="wrapper">
 
-  <!-- <div class="message">
-    {{ message }}
-  </div> -->
+  <div *ngIf="user" class="logged-in">
+    <button (click)="logout()">Log Out</button>
+    <p>Logged in as: {{ user.email }}</p>
+  </div>
 
   <div *ngIf="!user" class="auth-action">
     <p>
@@ -11,10 +12,6 @@
     </p>
   </div>
   
-  <div *ngIf="user" class="logged-in">
-    <button (click)="logout()">Log Out</button>
-    <p>Logged in as: {{ user.email }}</p>
-  </div>
   
   <div class="user-login" *ngIf ="showLoginDiv && !user">
     <h2>Log In</h2>

@@ -4,6 +4,18 @@
   height: 100vh;
 }
 
+.status-switcher {
+  font-size: 0px
+}
+
+.status-switcher button {
+  background: #303030;
+}
+
+.status-switcher button:hover {
+  background: #dadada;
+}
+
 .header-logo {
   margin-top: -50px;
   margin-bottom: -200px;

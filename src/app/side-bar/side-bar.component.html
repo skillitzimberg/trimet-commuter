@@ -10,7 +10,9 @@
       {{ sideBarMessage }}
     </div>
 
-    <app-login (messageNotification)="messageFromLogin($event)"></app-login>
+    
+    <app-login (messageNotification)="messageFromLogin($event)" (userLoggedOn)="setUser($event)"></app-login>
+    <app-recent-search *ngIf="user"></app-recent-search>
 
   </div>
 
