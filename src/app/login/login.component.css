@@ -1,36 +1,72 @@
-.forms {
-  display: flex;
+button {
+  cursor: pointer;
+  border-radius: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  font-size: 1.2em;
+  background: rgb(237, 237, 237);
+  width: 100%;
+  line-height: 2em;   
 }
 
-.form-box {
-  height: 12em;
-  display: inline-block;
-  padding: 0.5em;
-  margin: 0.5em;
-  background-color: #f8f8f8;
-  border: 1px solid #686868;
-  border-radius: 5px;
+input {
+  width: 100%;
+  display: block;
+  border-radius: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  font-size: 1.2em;
+  background: rgb(237, 237, 237);
+  line-height: 2em;   
+  font-size: 1.2em;
+  background-color: white;
+  cursor: text;
+  border-style: inset;
+  margin: .6em 0;
 }
 
-.form-box h2 {
-  margin: 0.7em 0em;
+::-webkit-input-placeholder {
+  text-align: center;
+ }
+
+ ::-moz-placeholder { 
+  text-align: center;
+ } 
+ 
+ :-ms-input-placeholder { 
+  text-align: center;
+ }
+ 
+.wrapper {
+  padding: 5px;
 }
 
-.form {
-  display: grid;
-  grid-template-columns: auto auto;
+.auth-action {
+  margin-bottom: 20px;
 }
 
-.form * {
-  margin: 0.2em;
+.auth-action span{
+  font-size: 1.3em;
 }
 
-.form-box input[type=button] {
-  display: inline-block;
-  padding: 0.2em;
-  margin: 0.5em;
-  background-color: #f0f0f0;
-  border: 1px solid #686868;
-  border-radius: 3px;
-  font-size: 0.8em;
+.auth-action h3 {
+  text-underline-position: under; 
+  display: inline;
+  color: #6565a5;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
+
+.logged-in {
+  margin-top: auto;
+  text-align: center;
+}
+
+/* 
+.user-register {
+  
+}
+
+.user-login {
+
+} */

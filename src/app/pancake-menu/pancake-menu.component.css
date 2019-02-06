@@ -1,0 +1,9 @@
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+header button {
+  margin: 10px;
+}

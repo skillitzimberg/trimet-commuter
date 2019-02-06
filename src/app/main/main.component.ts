@@ -27,9 +27,6 @@ export class MainComponent implements OnInit {
   }
 
 ]
-  // vehiclePosition = '5%';
-  // vehiclePosition2 = '25%';
-
 
   constructor() { }
 

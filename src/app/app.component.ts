@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Trimet-Commuter';
+  showNavSideBar: boolean = false;
+
+  toggleNav() {
+    this.showNavSideBar = this.showNavSideBar ? false:true;
+  }
 }
