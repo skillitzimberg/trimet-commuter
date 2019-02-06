@@ -21,9 +21,6 @@ input {
   cursor: text;
   border-style: inset;
   margin: .6em 0;
-  /* padding-left: 12px;
-  padding-right: -12px; */
-  /* padding: 0 -12px 0 12px; */
 }
 
 ::-webkit-input-placeholder {
@@ -40,30 +37,36 @@ input {
  
 .wrapper {
   padding: 5px;
-  /* display: flex;
-  flex-direction: column; */
 }
 
-.auth-action span {
+.auth-action {
+  margin-bottom: 20px;
+}
+
+.auth-action span{
+  font-size: 1.3em;
+}
+
+.auth-action h3 {
+  text-underline-position: under; 
+  display: inline;
   color: #6565a5;
   cursor: pointer;
+  font-weight: 400;
   text-decoration: underline;
-  text-decoration-style: dashed;
+  text-decoration-style: dotted;
 }
-
-
 
 .logged-in {
   margin-top: auto;
   text-align: center;
-  
 }
 
-
+/* 
 .user-register {
   
 }
 
 .user-login {
 
-}
+} */

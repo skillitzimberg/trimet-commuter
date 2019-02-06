@@ -1,12 +1,8 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { AuthService } from '../auth.service';
-
 
 import { LoginComponent } from '../login/login.component';
 import { RecentSearchComponent } from '../recent-search/recent-search.component';
-
-// import { interval, fromEvent } from 'rxjs'
 
 @NgModule({
   declarations: [
@@ -21,11 +17,10 @@ import { RecentSearchComponent } from '../recent-search/recent-search.component'
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
+  @Output() toggleNav = new EventEmitter()
   
   sideBarMessage;
   user;
-  
-  @Output() toggleNav = new EventEmitter()
 
   closeNav() {
     this.toggleNav.emit();
