@@ -10,32 +10,32 @@ p {
 .status-switcher {
   font-size: 0px;
   align-self: center;
+  z-index: 2;
 }
 
 .status-switcher button {
   height: 60px;
   width: 80px;
-  background: #303030;
+  /* background: #303030; */
 }
 
-.status-swticher button:hover {
-  background: white;
-  height:100px;
+.status-switcher button:hover {
+  background: black;
 }
 
-#am button {
+#am {
   border-radius: 40px 0px 0px 40px;
 }
 
-#pm button {
+#pm {
 
 }
 
-#quick buton {
+#quick {
   border-radius: 0px 40px 40px 0px;
 }
 
-/*  */
+/* Formatting for top text display */
 #stop-description {
   font-size: 10vw;
 }
@@ -43,6 +43,7 @@ p {
 #stop-id {
   font-size: 6vw;
 }
+
 
 .app-view {
   display: flex;
@@ -54,15 +55,9 @@ p {
   margin-top: -50px;
   margin-bottom: -200px;
   align-self: center;
+  z-index: 1;
 }
-.stop-info {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  margin: 10px;
-  margin-top: 20px;
-  outline: 1px solid black;
-  color: #303030;
-}
+
 
 .stop-info {
   display: grid;
