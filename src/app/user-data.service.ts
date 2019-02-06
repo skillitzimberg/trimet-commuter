@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from './auth.service';
+import { trimetApiKey } from './api-keys';
 
 @Injectable({
   providedIn: 'root'
@@ -27,23 +28,30 @@ export class UserDataService {
    }
 
    saveMorningStop(stopId) {
-     this.updateUserData({ morning: stopId });
+     this.getStopName(stopId).then((stopName) => {
+       this.updateUserData({ morning: stopId, morningName: stopName });
+     })
    }
 
    saveEveningStop(stopId) {
-     this.updateUserData({ evening: stopId });
+     this.getStopName(stopId).then((stopName) => {
+       this.updateUserData({ evening: stopId, eveningName: stopName });
+     })
    }
 
    saveQuickStop(stopId) {
-     this.updateUserData({ quick: stopId });
-     this.saveRecentStop(stopId);
+     this.getStopName(stopId).then((stopName) => {
+       this.updateUserData({ quick: stopId, quickName: stopName });
+       this.saveRecentStop([ stopId, stopName ]);
+     })
+
    }
 
-   saveRecentStop(stopId) {
+   saveRecentStop(stopIdAndName) {
      const recentSize = 5;
      const subscription = this.userData.subscribe((data) => {
        let recentArray = data['recent'] || [];
-       recentArray.unshift(stopId);
+       recentArray.unshift(stopIdAndName);
        if(recentArray.length > recentSize) {
          recentArray.length = recentSize;
        }
@@ -54,5 +62,16 @@ export class UserDataService {
 
    updateUserData(stopObject) {
      this.db.object(this.user.uid).update(stopObject);
+   }
+
+   getStopName(stopId) {
+     const apiURL = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&minutes=0&json=true`;
+
+     return fetch(apiURL).then((response) => {
+       return response.json();
+     }).then((responseData) => {
+       console.log(responseData);
+       return (responseData && responseData.resultSet && responseData.resultSet.location && responseData.resultSet.location[0] &&  responseData.resultSet.location[0].desc) || '';
+     });
    }
 }
