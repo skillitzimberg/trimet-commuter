@@ -1,9 +1,57 @@
 header {
-  position: fixed;
-  top: 0;
-  right: 0;
+  display: flex;
 }
 
-header button {
-  margin: 10px;
+flex-header {
+  height: 70px;
+  font-size: 0px;
+  display: flex;
+}
+
+img {
+  height: 30px;
+}
+
+.pancake-button {
+  display: flex;
+  flex-grow: 4;
+}
+
+/* Button bar for switching AM/PM views */
+.status-switcher {
+  display: flex;
+  font-size: 0px;
+}
+
+.status-switcher button {
+  height: 60px;
+  width: 80px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #303030;
+  /* border: 1px solid white; */
+  align-self: center;
+}
+
+.status-switcher img {
+  height: 40px;
+  margin-top: 5px;
+}
+
+#am {
+  border-radius: 40px 0px 0px 40px;
+  font-size: 40px;
+  text-align: center;
+
+}
+
+#pm {
+  font-size: 40px;
+  text-align: center;
+}
+
+#quick {
+  border-radius: 0px 40px 40px 0px;
+  font-size: 40px;
+  text-align: center;
 }

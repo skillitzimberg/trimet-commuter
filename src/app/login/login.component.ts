@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css'],
   providers: [ AuthService ]
 })
+
 export class LoginComponent implements OnInit {
   @Output() messageNotification = new EventEmitter()
   showRegisterDiv: boolean = false;
@@ -49,4 +51,5 @@ export class LoginComponent implements OnInit {
   showLogin() {
     this.showLoginDiv = this.showLoginDiv ? false: true;
   }
+
 }

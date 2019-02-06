@@ -15,20 +15,20 @@ export class RecentSearchComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe( (user)=> {
       if (user) {
-        this.user = user;
+        // this.user = user;
 
         this.userDataService.userData.subscribe( (userDate) => { 
           this.recentSearch = userDate['recent']; 
         });
 
-      } else { this.user = null; this.recentSearch=null}
+      } else { this.recentSearch=null}
           
     });
   }
 
-  user;
+  // user;
   recentSearch;
 
 
-  
+
 }

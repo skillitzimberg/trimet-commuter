@@ -12,12 +12,14 @@
   </div>
   
   <div class="user-login" *ngIf ="showLoginDiv && !user">
+    <!-- login -->
     <input type="text" #email placeholder="Email">
-    <input type="password" #password placeholder="Password">
-    <button (click)="login(email.value, password.value); email.value=''; password.value=''">Log in</button>
+    <input type="password" #password placeholder="Password" >
+    <button (click)=" login(email.value, password.value); email.value=''; password.value='' ">Log in</button>
   </div>
   
   <div class="user-register" *ngIf="showRegisterDiv && !user">
+    <!-- register -->
     <input type="text" #createEmail placeholder="Email">
     <input type="password" #createPassword placeholder="Password">
     <input type="password" #confirmPassword placeholder="Re-enter password">

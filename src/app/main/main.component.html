@@ -1,25 +1,16 @@
-<div class="app-view" [id]="timeOfDay">
+<!-- <div class="app-view" [id]="timeOfDay"> -->
 
-  <div class='status-switcher'>
-    <button id="am"><img src="assets/img/sun.svg" alt=""></button>
-    <button id="pm"><img src="assets/img/moon.svg" alt=""></button>
-    <button id="quick"><img src="assets/img/flash.svg" alt=""></button>
-  </div>
+  <!-- Save above. Below 'div' only used for morning/evning style testing -->
 
-
-  <div class="header-logo">
-    <img src="https://www.joshmorony.com/media/2016/05/sun.png" alt="">
-    <!-- <img style="z-index 999" id="main-train" src="assets/img/train.svg" alt=""> -->
-  </div>
+<div class="app-view" id="morning">
 
   <section class="stop-info">
-    <p id="stop-description">SE 7th and Everett</p>
+    <p id="stop-description">SE 7th and Everett this is a longer stop name</p>
     <p id="stop-id">Stop ID: 70983</p>
   </section>
 
-
-  <section>
-    <div class="upcoming-status-bar">
+  <section class="upcoming-status-bar">
+    <div>
       <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"></div>
       <div id="line"></div>
     </div>
