@@ -1,17 +1,21 @@
 export class Arrival {
-  shortSign: string;
+  line: string;
+  dest: string;
   scheduled: string;
   arrivalMin: number;
   arrivalSec: number;
   late: string;
 
   constructor(queryTime, params) {
-    this.shortSign = params.shortSign || '';
+    const shortSign = params.shortSign || '';
+    [this.line, this.dest] = this.splitShortSign(shortSign);
+    console.log(this.line);
+    console.log(this.dest);
     this.scheduled = '';
     this.arrivalMin = 0;
     this.arrivalSec = 0;
     this.late = 'No ETA';
-
+    
     if (params.scheduled) {
       const options = { hour: 'numeric', minute: '2-digit' };
       const scheduledDate = new Date(params.scheduled);
@@ -32,6 +36,21 @@ export class Arrival {
         const lateMin = Math.floor((estimatedTime - scheduledTime) / msPerMin);
         this.late = ((lateMin === 0) ? 'On time' : lateMin + ' min late');
       }
+    }
+  }
+
+  splitShortSign(shortSign) {
+    const regexTo = / to /i;
+    const regexLineTo = / line to /i;
+    const regexOtherCases = /^\d+ +/i;
+    if (regexLineTo.test(shortSign)) {
+      return shortSign.split(regexLineTo);
+    } else if (regexTo.test(shortSign)) {
+      return shortSign.split(regexTo);
+    } else if (regexOtherCases.test(shortSign)) {
+      const number = shortSign.match(regexOtherCases)[0].trim();
+      const destination = shortSign.replace(regexOtherCases, '');
+      return [ number, destination ];
     }
   }
 }
