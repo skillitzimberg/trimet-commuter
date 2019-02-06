@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,11 +12,10 @@ export class LoginComponent implements OnInit {
   @Output() userLoggedOn = new EventEmitter();
 
   user;
-
   showRegisterDiv: boolean = false;
   showLoginDiv: boolean = false;
 
-  constructor( public authService: AuthService ) { }
+  constructor( private authService: AuthService ) { }
 
   ngOnInit() {
     this.authService.user.subscribe(user => {

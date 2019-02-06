@@ -1,10 +1,12 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
+import { AuthService } from '../auth.service';
+
 
 import { LoginComponent } from '../login/login.component';
 import { RecentSearchComponent } from '../recent-search/recent-search.component';
 
-// import { from, Observable } from 'rxjs/observable'
+// import { interval, fromEvent } from 'rxjs'
 
 @NgModule({
   declarations: [
@@ -18,14 +20,10 @@ import { RecentSearchComponent } from '../recent-search/recent-search.component'
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent implements OnInit{
+export class SideBarComponent {
+  
   sideBarMessage;
   user;
-
-  ngOnInit() {
-    // this.sideBarMessage.subscribe(x=> console.log('change!'))
-    
-  }
   
   @Output() toggleNav = new EventEmitter()
 
@@ -34,15 +32,16 @@ export class SideBarComponent implements OnInit{
   }
 
   messageFromLogin(msg) {
-    // this.sideBarMessage = from(msg)
     this.sideBarMessage = msg;
   }
 
   setUser(user) {
     this.user = user;
-    // console.log(user)
+
+    const autoClearNotification = setInterval(()=>{
+      this.sideBarMessage = null;
+      clearInterval(autoClearNotification);
+    },3000);
   }
-
-
 
 }
