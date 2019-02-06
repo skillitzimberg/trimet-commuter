@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service';
+import { StopService } from '../stop.service';
 
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css'],
-  providers: [AuthService, UserDataService]
+  providers: [ AuthService, UserDataService, StopService ]
 })
 export class TestComponent implements OnInit {
   morningId: number;
@@ -16,7 +16,7 @@ export class TestComponent implements OnInit {
   quickId: number;
   recentIds: number[];
 
-  constructor(public authService: AuthService, public userDataService: UserDataService) {
+  constructor( public authService: AuthService, public userDataService: UserDataService, public stopService: StopService ) {
     this.init();
   }
 
@@ -53,5 +53,9 @@ export class TestComponent implements OnInit {
 
   saveQuickStop(stopId) {
     this.userDataService.saveQuickStop(parseInt(stopId));
+  }
+
+  getMorningData() {
+    this.stopService.getMorningData();
   }
 }
