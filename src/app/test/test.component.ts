@@ -16,7 +16,10 @@ export class TestComponent implements OnInit {
   quickId: number;
   recentIds: number[];
 
-  constructor( public authService: AuthService, public userDataService: UserDataService, public stopService: StopService ) {
+  constructor( 
+    public authService: AuthService, 
+    public userDataService: UserDataService, 
+    public stopService: StopService ) {
     this.init();
   }
 
