@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       this.user = user;
     });
 
-    this.messageNotification.subscribe(console.log('message changed'))
+    // this.messageNotification.subscribe(console.log('message changed'))
   }
 
   register(email: string, password: string, confirmPassword: string) {

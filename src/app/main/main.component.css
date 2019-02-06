@@ -1,25 +1,38 @@
 .app-view {
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
   height: 100vh;
 }
 
-
-.info {
+.header-logo {
+  margin-top: -50px;
+  margin-bottom: -200px;
+  align-self: center;
+}
+.stop-info {
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin: 10px;
   margin-top: 20px;
   outline: 1px solid black;
   color: #303030;
+}
 
+.stop-info p{
+  display: grid;
+  grid-template-columns: auto;
+  font-size: 40px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* margin-block-start: 0px;
+  margin-block-end: 0px; */
 }
 
 #morning {
   color: #303030;
-  background-image: url(https://www.joshmorony.com/media/2016/05/sun.png), 
-  linear-gradient(#81cdc4, #81cdc4 100%);
-  background-repeat: no-repeat, no-repeat;
-  background-position: -60% -40%, center;
+  background-image: linear-gradient(#81cdc4, #81cdc4 100%);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #evening {
@@ -46,7 +59,7 @@
   border-radius: 100%;
   height: 2.5em;
   width: 2.5em;
-  background:#85ff66a8;
+  /* background:#85ff66a8; */
   background-image: url(../../assets/img/train.svg);
   position: absolute;
   top: 9px;

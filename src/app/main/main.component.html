@@ -1,18 +1,21 @@
 <div class="app-view" [id]="timeOfDay">
 
-  <section class="info">
+  <div class="header-logo">
+    <img src="https://www.joshmorony.com/media/2016/05/sun.png" alt="">
+    <!-- <img style="z-index 999" id="main-train" src="assets/img/train.svg" alt=""> -->
+  </div>
+
+  <section class="stop-info">
     <p><strong>Location:</strong></p>
     <p>5th and Oak</p>
-
     <p><strong>Stop ID:</strong></p>
     <p>70983</p>
   </section>
 
-  <!-- <mat-icon svgIcon="thumbs-up"></mat-icon> -->
 
   <section>
     <div class="upcoming-status">
-      <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"><img src="assets/img/train.svg" alt=""></div>
+      <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"></div>
       <div id="line"></div>
     </div>
   </section>
@@ -29,6 +32,5 @@
     </mat-accordion>
   </section>
 
-<img id="main-train" src="assets/img/train.svg" alt="">
 
 </div>

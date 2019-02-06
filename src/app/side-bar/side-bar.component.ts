@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
+// import { from, Observable } from 'rxjs/observable'
 
 @NgModule({
   declarations: [
@@ -8,16 +9,19 @@ import { LoginComponent } from '../login/login.component';
   ]
 })
 
-
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent {
+export class SideBarComponent implements OnInit{
   sideBarMessage;
-  // messageFromLogin;
 
+  ngOnInit() {
+    // this.sideBarMessage.subscribe(x=> console.log('change!'))
+    
+  }
+  
   @Output() toggleNav = new EventEmitter()
 
   closeNav() {
@@ -25,6 +29,7 @@ export class SideBarComponent {
   }
 
   messageFromLogin(msg) {
+    // this.sideBarMessage = from(msg)
     this.sideBarMessage = msg;
   }
 

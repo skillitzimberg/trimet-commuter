@@ -19,17 +19,29 @@ input {
   font-size: 1.2em;
   background-color: white;
   cursor: text;
-  padding: 0 .8em;
   border-style: inset;
   margin: .6em 0;
+  /* padding-left: 12px;
+  padding-right: -12px; */
+  /* padding: 0 -12px 0 12px; */
 }
 
+::-webkit-input-placeholder {
+  text-align: center;
+ }
+
+ ::-moz-placeholder { 
+  text-align: center;
+ } 
+ 
+ :-ms-input-placeholder { 
+  text-align: center;
+ }
+ 
 .wrapper {
-  /* position: relative; */
-  /* bottom: 0; */
-  /* position: relative */
-  display: flex;
-  flex-direction: column;
+  padding: 5px;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .auth-action span {
@@ -44,6 +56,7 @@ input {
 .logged-in {
   margin-top: auto;
   text-align: center;
+  
 }
 
 
