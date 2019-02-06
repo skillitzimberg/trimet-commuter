@@ -1,13 +1,15 @@
 export class Arrival {
   shortSign: string;
   scheduled: string;
-  arrival: string;
+  arrivalMin: number;
+  arrivalSec: number;
   late: string;
 
   constructor(queryTime, params) {
     this.shortSign = params.shortSign || '';
     this.scheduled = '';
-    this.arrival = '';
+    this.arrivalMin = 0;
+    this.arrivalSec = 0;
     this.late = 'No ETA';
 
     if (params.scheduled) {
@@ -19,13 +21,12 @@ export class Arrival {
         const msPerMin = 60 * 1000;
         const estimatedTime = new Date(params.estimated).getTime();
         const arrivalTotal = (estimatedTime - queryTime) / msPerMin;
-        let arrivalMin = Math.floor(arrivalTotal);
-        let arrivalSec = 5 * Math.round(12 * (arrivalTotal - arrivalMin));
-        if (arrivalSec === 60) {
-          arrivalSec = 0;
-          arrivalMin += 1;
+        this.arrivalMin = Math.floor(arrivalTotal);
+        this.arrivalSec = 5 * Math.round(12 * (arrivalTotal - this.arrivalMin));
+        if (this.arrivalSec === 60) {
+          this.arrivalSec = 0;
+          this.arrivalMin += 1;
         }
-        this.arrival = arrivalMin + ' min ' + arrivalSec + ' sec';
 
         const scheduledTime = scheduledDate.getTime();
         const lateMin = Math.floor((estimatedTime - scheduledTime) / msPerMin);

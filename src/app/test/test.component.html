@@ -45,7 +45,10 @@
     <div class="arrival" *ngFor="let arrival of stop.arrivals">
       <span>{{arrival.shortSign}}</span>
       <span>Scheduled: {{arrival.scheduled}}</span>
-      <span>{{arrival.arrival}}</span>
+      <span>
+        <span class="minutes">{{arrival.arrivalMin}} min</span>
+        <span class="seconds">{{arrival.arrivalSec}} sec</span>
+      </span>
       <span>{{arrival.late}}</span>
     </div>
   </div>
