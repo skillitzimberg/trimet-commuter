@@ -1,0 +1,33 @@
+<div class='flex-container test-box'>
+  <div class="">
+    <p>Morning: {{morningId}}</p>
+    <p>Evening: {{eveningId}}</p>
+    <p>Quick: {{quickId}}</p>
+    <p>Recents: {{recentIds}}</p>
+  </div>
+
+  <div id='morning' class='flex-div'>
+    <h2>Morning</h2>
+    <div class='flex-item'>
+      <input type="number" #morningStopId>
+      <button type="submit" (click)="saveMorningStop(morningStopId.value); morningStopId.value=''" name="morningStopId">Save Stop</button>
+    </div>
+    <button type="submit" (click)="getMorningData()" name="button">Get Stop Data</button>
+  </div>
+
+  <div id='evening' class='flex-div'>
+    <div class="flex-item">
+      <h2>Evening</h2>
+      <input type="number" #eveningStopId>
+      <button type="submit" (click)="saveEveningStop(eveningStopId.value); eveningStopId.value=''" name="eveningStopId">Save Stop</button>
+    </div>
+  </div>
+
+  <div id='evening' class='flex-div'>
+    <div class="flex-item">
+      <h2>Quick</h2>
+      <input type="number" #quickStopId>
+      <button type="submit" (click)="saveQuickStop(quickStopId.value); quickStopId.value=''" name="quickStopId">Save Stop</button>
+    </div>
+  </div>
+</div>

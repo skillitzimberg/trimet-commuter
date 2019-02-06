@@ -1,0 +1,7 @@
+.test-box {
+  display: flex;
+}
+
+.test-box div {
+  margin: 0.5em;
+}
