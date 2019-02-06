@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service'
-import { StopService } from '../stop.service';
+// import { StopService } from '../stop.service';
 
 @Component({
   selector: 'app-first-start',
@@ -12,9 +12,10 @@ import { StopService } from '../stop.service';
 })
 export class FirstStartComponent implements OnInit {
   constructor( 
-    public authService: AuthService, 
-    public userDataService: UserDataService, 
-    public stopService: StopService ) {
+    private authService: AuthService, 
+    private userDataService: UserDataService
+    // private stopService: StopService 
+    ) {
    }
 
    morningId: number;

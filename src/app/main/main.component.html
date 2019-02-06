@@ -1,9 +1,9 @@
 <div class="app-view" [id]="timeOfDay">
 
   <div class='status-switcher'>
-    <button id="am">☀️</button>
-    <button id="pm">🌙</button>
-    <button id="quick">⏳</button>
+    <button id="am"><img src="assets/img/sun.svg" alt=""></button>
+    <button id="pm"><img src="assets/img/moon.svg" alt=""></button>
+    <button id="quick"><img src="assets/img/flash.svg" alt=""></button>
   </div>
 
 
@@ -19,13 +19,13 @@
 
 
   <section>
-    <div class="upcoming-status">
+    <div class="upcoming-status-bar">
       <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"></div>
       <div id="line"></div>
     </div>
   </section>
 
-  <section>
+  <section class="upcoming-status-accordion">
     <mat-accordion>
       <mat-expansion-panel *ngFor="let train of trains">
         <mat-expansion-panel-header >

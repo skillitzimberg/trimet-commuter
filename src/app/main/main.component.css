@@ -11,28 +11,37 @@ p {
   font-size: 0px;
   align-self: center;
   z-index: 2;
+  order: 1;
 }
 
 .status-switcher button {
   height: 60px;
   width: 80px;
-  /* background: #303030; */
+  background: #303030;
+  /* border: 1px solid white; */
 }
 
-.status-switcher button:hover {
-  background: black;
+.status-switcher img {
+  height: 40px;
+  margin-top: 5px;
 }
 
 #am {
   border-radius: 40px 0px 0px 40px;
+  font-size: 40px;
+  text-align: center;
+
 }
 
 #pm {
-
+  font-size: 40px;
+  text-align: center;
 }
 
 #quick {
   border-radius: 0px 40px 40px 0px;
+  font-size: 40px;
+  text-align: center;
 }
 
 /* Formatting for top text display */
@@ -56,6 +65,7 @@ p {
   margin-bottom: -200px;
   align-self: center;
   z-index: 1;
+  order:-1;
 }
 
 
@@ -84,12 +94,12 @@ p {
   background-position: 180% -50%, center;
 }
 
-.upcoming-status {
+.upcoming-status-bar {
   position: relative;
   padding: 25px;
 }
 
-.upcoming-status #line {
+.upcoming-status-bar #line {
   height: 4px;
   background :#dadada;
   z-index: 100;

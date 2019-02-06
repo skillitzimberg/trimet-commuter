@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   @Output() messageNotification = new EventEmitter()
-  @Output() userLoggedOn = new EventEmitter();
+  // @Output() userLoggedOn = new EventEmitter();
 
   user;
   showRegisterDiv: boolean = false;
@@ -21,10 +21,9 @@ export class LoginComponent implements OnInit {
     this.authService.user.subscribe(user => {
       this.user = user;
 
-      this.userLoggedOn.emit(this.user);
+      // this.userLoggedOn.emit(this.user);
     });
 
-    // this.messageNotification.subscribe(console.log('message changed'))
   }
 
   register(email: string, password: string, confirmPassword: string) {
@@ -40,14 +39,14 @@ export class LoginComponent implements OnInit {
     this.authService.login(email, password);
     this.messageNotification.emit(`You've successfully logged on`);
 
-    this.userLoggedOn.emit(this.user);
+    // this.userLoggedOn.emit(this.user);
   }
 
   logout() {
     this.authService.logout();
     this.messageNotification.emit(`You're now logged out.`);
 
-    this.userLoggedOn.emit(null);
+    // this.userLoggedOn.emit(null);
   }
 
   showRegister() {

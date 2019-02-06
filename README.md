@@ -4,7 +4,7 @@
   * issue- returns USER object when wrong credentials entered.
   * expected behavior- does not return USER object
 * [USER DATA]
-  * issue- missing 'formal stop' name
+  * request- missing 'formal stop' name
 
 # TrimetCommuter
 
