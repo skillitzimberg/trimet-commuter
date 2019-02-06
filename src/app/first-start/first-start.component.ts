@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service'
-// import { StopService } from '../stop.service';
 
 @Component({
   selector: 'app-first-start',
@@ -14,7 +13,6 @@ export class FirstStartComponent implements OnInit {
   constructor( 
     private authService: AuthService, 
     private userDataService: UserDataService
-    // private stopService: StopService 
     ) {
    }
 
@@ -25,10 +23,8 @@ export class FirstStartComponent implements OnInit {
     this.authService.user.subscribe( (user) => {
       if (user) {
         this.userDataService.userData.subscribe( (userData) => {
-          if (userData) {
-            this.morningId = userData['morning'];
-            this.eveningId = userData['evening'];
-          } 
+          this.morningId = userData['morning'];
+          this.eveningId = userData['evening'];
         });
       } else { 
         this.morningId = null;
@@ -38,11 +34,11 @@ export class FirstStartComponent implements OnInit {
   }
 
   saveMorningStop(stopId) {
-    this.userDataService.saveMorningStop(parseInt(stopId));
+    if (this.morningId) { this.userDataService.saveMorningStop(parseInt(stopId)); }
   }
 
   saveEveningStop(stopId) {
-    this.userDataService.saveEveningStop(parseInt(stopId));
+    if ( this.eveningId ) { this.userDataService.saveEveningStop(parseInt(stopId)); }
   }
 
 }

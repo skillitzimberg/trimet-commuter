@@ -1,0 +1,38 @@
+.wrapper {
+  padding: 5px;
+}
+
+
+.recents {
+
+  width: 100%;
+  display: block;
+  border-radius: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  font-size: 1.2em;
+  background: rgb(237, 237, 237);
+  line-height: 2em;   
+  font-size: 1.2em;
+  background-color: white;
+  cursor: text;
+  border-style: inset;
+  margin: .6em 0;
+
+}
+
+
+/* 
+input {
+  width: 100%;
+  display: block;
+  border-radius: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  font-size: 1.2em;
+  background: rgb(237, 237, 237);
+  line-height: 2em;   
+  font-size: 1.2em;
+  background-color: white;
+  cursor: text;
+  border-style: inset;
+  margin: .6em 0;
+} */

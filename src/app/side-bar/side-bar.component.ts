@@ -23,8 +23,8 @@ export class SideBarComponent implements OnInit {
 
   ngOnInit() { 
     this.authService.user.subscribe( (user) => {
-      if (user) { this.user = user; console.log(`sidebar: ${this.user}`) }
-      else { this.user = null}
+      if (user) { this.user = user; }
+      else { this.user = null; }
     });
   }
 
@@ -44,15 +44,6 @@ export class SideBarComponent implements OnInit {
       this.sideBarMessage = null;
       clearInterval(autoClearNotification);
     },3000);
-  }
-
-  setUser(user) {
-    // this.user = user;
-
-    // const autoClearNotification = setInterval(()=>{
-    //   this.sideBarMessage = null;
-    //   clearInterval(autoClearNotification);
-    // },3000);
   }
 
 }

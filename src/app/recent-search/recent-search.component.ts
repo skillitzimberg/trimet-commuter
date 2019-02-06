@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { UserDataService } from '../user-data.service'
+
+
 
 @Component({
   selector: 'app-recent-search',
@@ -6,10 +10,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recent-search.component.css']
 })
 export class RecentSearchComponent implements OnInit {
-
-  constructor() { }
+  constructor(private authService: AuthService, private userDataService: UserDataService) { }
 
   ngOnInit() {
+    this.authService.user.subscribe( (user)=> {
+      if (user) {
+        this.user = user;
+
+        this.userDataService.userData.subscribe( (userDate) => { 
+          this.recentSearch = userDate['recent']; 
+        });
+
+      } else { this.user = null; this.recentSearch=null}
+          
+    });
   }
 
+  user;
+  recentSearch;
+
+
+  
 }

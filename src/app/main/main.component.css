@@ -1,3 +1,15 @@
+:root {
+  --status-switcher-order: 10;
+}
+
+.app-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
 /* Removes default margins from paragraph elements */
 p {
   margin-block-start: 0em;
@@ -11,7 +23,9 @@ p {
   font-size: 0px;
   align-self: center;
   z-index: 2;
-  order: 1;
+  /* sets order of appearance for flex display */
+  order: var(--status-switcher-order);
+  /* order: 10; */
 }
 
 .status-switcher button {
@@ -54,11 +68,6 @@ p {
 }
 
 
-.app-view {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
 
 .header-logo {
   margin-top: -50px;
@@ -97,12 +106,18 @@ p {
 .upcoming-status-bar {
   position: relative;
   padding: 25px;
+
+  order: 3;
 }
 
 .upcoming-status-bar #line {
   height: 4px;
   background :#dadada;
   z-index: 100;
+}
+
+.upcoming-status-accordion {
+  order: 3;
 }
 
 .vehicle {
