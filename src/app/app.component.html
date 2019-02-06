@@ -1,3 +1,5 @@
-<app-login></app-login>
+<pancake-menu (toggleNav)="toggleNav()"></pancake-menu>
+
+<app-side-bar *ngIf="showNavSideBar" (toggleNav)="toggleNav()"></app-side-bar>
 
 <router-outlet></router-outlet>

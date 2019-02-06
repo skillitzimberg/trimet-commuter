@@ -1,30 +1,28 @@
 <div class="app-view" [id]="timeOfDay">
 
+  <div class='status-switcher'>
+    <button id="am">☀️</button>
+    <button id="pm">🌙</button>
+    <button id="quick">⏳</button>
+  </div>
 
-  <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
 
-  <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>Drawer content</mat-drawer>
-    <mat-drawer-content>Main content</mat-drawer-content>
-    <mat-drawer-content>Main content</mat-drawer-content>
-    <mat-drawer-content>Main content</mat-drawer-content>
+  <div class="header-logo">
+    <img src="https://www.joshmorony.com/media/2016/05/sun.png" alt="">
+    <!-- <img style="z-index 999" id="main-train" src="assets/img/train.svg" alt=""> -->
+  </div>
 
-  </mat-drawer-container> -->
-
-  <section class="info">
-    <p><strong>stop name:</strong> 5th and oak</p>
-    <p><strong>route:</strong> 1234</p>
+  <section class="stop-info">
+    <p><strong>Location:</strong></p>
+    <p>5th and Oak</p>
+    <p><strong>Stop ID:</strong></p>
+    <p>70983</p>
   </section>
 
-  <!-- <mat-icon svgIcon="thumbs-up"></mat-icon> -->
 
   <section>
     <div class="upcoming-status">
-      <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)">🚆</div>
+      <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"></div>
       <div id="line"></div>
     </div>
   </section>
@@ -40,5 +38,6 @@
       </mat-expansion-panel>
     </mat-accordion>
   </section>
+
 
 </div>

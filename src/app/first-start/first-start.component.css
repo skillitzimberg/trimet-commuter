@@ -1,38 +1,77 @@
 .flex-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   height: 100%;
-  outline: 1px solid black;
-  justify-content: center;
-}
-
-.scale-font {
-  font-size: 20vh;
-}
-
-#morning {
-  background: linear-gradient(to bottom right, #FFBC31 20%, #E990A5 100%);
-}
-
-#evening {
-  background: linear-gradient(to bottom left, #E990A5 20%, #8631FF 100%);
 }
 
 .flex-div {
-  display: flex;
-  flex-direction: column;
-  outline: 1px solid black;
   text-align: center;
   width: 100%;
   height: 50vh;
 }
 
-.flex-item {
-  outline: 1px solid red;
+.scale-font {
+  font-size: 15vh;
+  margin-bottom: 0px;
 }
 
-h1, p, input {
-  display: inline-block;
-  border: 1px solid black;
+p {
+  font-size: 2.5vh;
 }
 
+.button-input-bar {
+  justify-content: center;
+  display: flex;
+  font-size: 0px;
+  height: 5vh;
+  margin-bottom: 10px;
+}
+
+.button-input-bar button {
+  border-radius: 40px 0px 0px 40px;
+  font-size: 2.3vh;
+  border-right: none;
+  width: 10vh;
+}
+
+.button-input-bar button:hover {
+  cursor: pointer;
+}
+
+.morning-button {
+  background: #303030;
+  color: #d7d7d7;
+}
+
+.evening-button {
+  background: #81cdc4;
+  color: #303030;
+}
+
+.button-input-bar input {
+  border-radius: 0px 40px 40px 0px;
+  width: 15vh;
+  font-size: 3vh;
+  text-align: center;
+  border-width: 0px;
+}
+
+#morning {
+  color: #303030;
+  background-image: url(https://www.joshmorony.com/media/2016/05/sun.png), 
+  linear-gradient(#81cdc4, #81cdc4 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: -60% -40%, center;
+}
+
+#evening {
+  color: #81cdc4;
+  background-image: url(https://www.joshmorony.com/media/2016/05/moon.png), 
+  linear-gradient(#303030, #303030 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 180% -50%, center;
+}
+
+.stop-details p {
+  margin: 0px;
+}

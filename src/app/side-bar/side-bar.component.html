@@ -1,0 +1,21 @@
+<div class="sidebar">
+
+  <button class="close" (click)="closeNav()">
+    <span >&times;</span>
+  </button>
+
+  <div class="sidebar-components">
+
+    <div class="alert" *ngIf="sideBarMessage">
+      {{ sideBarMessage }}
+    </div>
+
+    <app-recent-search *ngIf="user"></app-recent-search>
+   
+    <app-login (messageNotification)="messageFromLogin($event)" (userLoggedOn)="setUser($event)"></app-login>
+
+  </div>
+
+
+</div>
+
