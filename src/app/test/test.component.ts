@@ -64,4 +64,20 @@ export class TestComponent implements OnInit {
       console.log("test stop", this.stop);
     });
   }
+
+  getEveningData() {
+    let promise = this.stopService.getEveningData();
+    promise.then((stop) => {
+      this.stop = stop;
+      console.log("test stop", this.stop);
+    });
+  }
+
+  getQuickData() {
+    let promise = this.stopService.getQuickData();
+    promise.then((stop) => {
+      this.stop = stop;
+      console.log("test stop", this.stop);
+    });
+  }
 }

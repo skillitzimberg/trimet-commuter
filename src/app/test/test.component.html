@@ -5,7 +5,7 @@
       <input type="number" #morningStopId>
       <button type="submit" (click)="saveMorningStop(morningStopId.value); morningStopId.value=''" name="morningStopId">Save Stop</button>
     </div>
-    <button type="submit" (click)="getMorningData()" name="button">Get Stop Data</button>
+    <button type="submit" (click)="getMorningData()" name="button">Get Morning Stop Data</button>
   </div>
 
   <div id='evening' class='flex-div'>
@@ -14,6 +14,7 @@
       <input type="number" #eveningStopId>
       <button type="submit" (click)="saveEveningStop(eveningStopId.value); eveningStopId.value=''" name="eveningStopId">Save Stop</button>
     </div>
+    <button type="submit" (click)="getEveningData()" name="button">Get Evening Stop Data</button>
   </div>
 
   <div id='quick' class='flex-div'>
@@ -22,6 +23,7 @@
       <input type="number" #quickStopId>
       <button type="submit" (click)="saveQuickStop(quickStopId.value); quickStopId.value=''" name="quickStopId">Save Stop</button>
     </div>
+    <button type="submit" (click)="getQuickData()" name="button">Get Quick Stop Data</button>
   </div>
 
   <div class="">
