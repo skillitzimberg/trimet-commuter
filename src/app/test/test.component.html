@@ -1,11 +1,4 @@
 <div class='flex-container test-box'>
-  <div class="">
-    <p>Morning: {{morningId}}</p>
-    <p>Evening: {{eveningId}}</p>
-    <p>Quick: {{quickId}}</p>
-    <p>Recents: {{recentIds}}</p>
-  </div>
-
   <div id='morning' class='flex-div'>
     <h2>Morning</h2>
     <div class='flex-item'>
@@ -23,11 +16,29 @@
     </div>
   </div>
 
-  <div id='evening' class='flex-div'>
+  <div id='quick' class='flex-div'>
     <div class="flex-item">
       <h2>Quick</h2>
       <input type="number" #quickStopId>
       <button type="submit" (click)="saveQuickStop(quickStopId.value); quickStopId.value=''" name="quickStopId">Save Stop</button>
+    </div>
+  </div>
+
+  <div class="">
+    <p>Morning: {{morningId}}</p>
+    <p>Evening: {{eveningId}}</p>
+    <p>Quick: {{quickId}}</p>
+    <p>Recents: {{recentIds}}</p>
+  </div>
+
+</div>
+<div>
+  <div class="arrival-list">
+    <div class="arrival" *ngFor="let arrival of arrivals">
+      <span>{{arrival.shortSign}}</span>
+      <span>Scheduled: {{arrival.scheduled}}</span>
+      <span>{{arrival.arrival}}</span>
+      <span>{{arrival.late}}</span>
     </div>
   </div>
 </div>

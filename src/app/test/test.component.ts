@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service';
 import { StopService } from '../stop.service';
+import { Arrival } from '../models/arrival.model'
 
 
 @Component({
@@ -15,6 +16,7 @@ export class TestComponent implements OnInit {
   eveningId: number;
   quickId: number;
   recentIds: number[];
+  arrivals: Arrival[];
 
   constructor( public authService: AuthService, public userDataService: UserDataService, public stopService: StopService ) {
     this.init();
@@ -56,6 +58,10 @@ export class TestComponent implements OnInit {
   }
 
   getMorningData() {
-    this.stopService.getMorningData();
+    let promise = this.stopService.getMorningData();
+    promise.then((arrivals) => {
+      this.arrivals = arrivals;
+      console.log("test arr", this.arrivals);
+    });
   }
 }
