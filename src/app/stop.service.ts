@@ -4,6 +4,10 @@ import { UserDataService } from './user-data.service';
 import { trimetApiKey } from './api-keys';
 import { Arrival } from './models/arrival.model';
 import { Stop } from './models/stop.model';
+import { Observable } from 'rxjs/Observable';
+import { interval } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -51,26 +55,39 @@ export class StopService {
   getStopData(stopId) {
     const apiURL = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&minutes=30&json=true`;
 
-    return fetch(apiURL).then((response) => {
-      return response.json();
-    }).then((responseData) => {
-      console.log('resp', responseData);
-      const arrivals: Arrival[] = [];
-      let currentStop: Stop;
-      if (responseData && responseData.resultSet) {
-        if (responseData.resultSet.arrival) {
-          const queryTime = (new Date(responseData.resultSet.queryTime)).getTime();
-          responseData.resultSet.arrival.forEach((arrivalData) => {
-            arrivals.push(new Arrival(queryTime, arrivalData));
-          });
-        }
+    const updateInterval = 1000;
+    const trimetInterval = 60000;
+    let trimetLastTime = 0;
+    let trimetResponse = {};
 
-        let stopData = responseData.resultSet.location[0] || {};
-        console.log("stopData", stopData);
-        currentStop = new Stop(arrivals, stopData);
-
-      }
-      return currentStop;
+    const counter = interval(updateInterval);
+    const createStop = map((count) => {
+      const now = (new Date()).getTime();
+      return new Stop([], { locid: count});
     });
+
+    return createStop(counter);
+
+    // return fetch(apiURL).then((response) => {
+    //   return response.json();
+    // }).then((responseData) => {
+    //   console.log('resp', responseData);
+    //   const arrivals: Arrival[] = [];
+    //   let currentStop: Stop;
+    //   if (responseData && responseData.resultSet) {
+    //     if (responseData.resultSet.arrival) {
+    //       const queryTime = (new Date(responseData.resultSet.queryTime)).getTime();
+    //       responseData.resultSet.arrival.forEach((arrivalData) => {
+    //         arrivals.push(new Arrival(queryTime, arrivalData));
+    //       });
+    //     }
+    //
+    //     let stopData = responseData.resultSet.location[0] || {};
+    //     console.log("stopData", stopData);
+    //     currentStop = new Stop(arrivals, stopData);
+    //
+    //   }
+    //   return currentStop;
+    // });
   }
 }
