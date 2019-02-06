@@ -2,7 +2,7 @@
 .app-view {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   width: 100vw;
   height: 100vh;
 }
@@ -13,45 +13,6 @@ p {
   margin-block-end: 0em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-}
-
-/* Formatting for view-switching button navigation bar */
-.status-switcher {
-  font-size: 0px;
-  align-self: center;
-  z-index: 2;
-  /* sets order of appearance for flex display */
-  order: 20;
-}
-
-.status-switcher button {
-  height: 60px;
-  width: 80px;
-  background: #303030;
-  /* border: 1px solid white; */
-}
-
-.status-switcher img {
-  height: 40px;
-  margin-top: 5px;
-}
-
-#am {
-  border-radius: 40px 0px 0px 40px;
-  font-size: 40px;
-  text-align: center;
-
-}
-
-#pm {
-  font-size: 40px;
-  text-align: center;
-}
-
-#quick {
-  border-radius: 0px 40px 40px 0px;
-  font-size: 40px;
-  text-align: center;
 }
 
 /* Formatting for top text display */
@@ -70,36 +31,22 @@ p {
   margin-top: 0px;
   margin-bottom: 0px;
   padding-left: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: rgba(201, 76, 76, 0.1);
-
-  /* margin-block-start: 5px;
-  margin-block-end: 5px; */
-
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background-color: rgba(255, 255, 255, 0.4);
+  flex-grow: 0;
   order: 3;
 }
 
-#morning {
-  color: #303030;
-  background-image: url(https://www.joshmorony.com/media/2016/05/sun.png), linear-gradient(#81cdc4, #81cdc4 100%);
-  background-repeat: no-repeat, no-repeat;
-  background-position: 50% 5%, center;
-}
-
-#evening {
-  color: #81cdc4;
-  background-image: url(https://www.joshmorony.com/media/2016/05/moon.png), 
-  linear-gradient(#303030, #303030 100%);
-  background-repeat: no-repeat, no-repeat;
-  background-position: 50% 5%, center;
-}
-
 .upcoming-status-bar {
+  /* visibility: hidden; */
   position: relative;
   padding: 25px;
-
+  margin-top: 50px;
+  margin-bottom: 50px;
   order: 4;
+  flex-grow: 0;
+  border: 2px solid black;
 }
 
 .upcoming-status-bar #line {
@@ -109,6 +56,7 @@ p {
 }
 
 .upcoming-status-accordion {
+  flex-grow: 4;
   order: 5;
 }
 
@@ -122,4 +70,55 @@ p {
   position: absolute;
   top: 9px;
   z-index: 200;
+}
+
+#morning {
+  color: #303030;
+  background-image: url(https://www.joshmorony.com/media/2016/05/sun.png), linear-gradient(#81cdc4, #81cdc4 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 150% -10%, center;
+}
+
+#evening {
+  color: #81cdc4;
+  background-image: url(https://www.joshmorony.com/media/2016/05/moon.png), 
+  linear-gradient(#303030, #303030 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 150% -10%, center;
+}
+
+/* Everything below is formatting for the quick-entry button */
+.quick-input {
+  /* visibility: hidden; */
+  justify-content: center;
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 50px;
+  margin-bottom: 10px;
+  z-index: 999;
+}
+
+.quick-input button {
+  border-radius: 40px 0px 0px 40px;
+  font-size: 2.3vh;
+  border-right: none;
+  width: 100px;
+}
+
+.quick-input button:hover {
+  cursor: pointer;
+}
+
+.quick-button {
+  background: #303030;
+  color: #d7d7d7;
+}
+
+.quick-input input {
+  border-radius: 0px 40px 40px 0px;
+  width: 200px;
+  font-size: 3vh;
+  text-align: center;
+  border-width: 0px;
 }

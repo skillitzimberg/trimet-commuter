@@ -1,0 +1,28 @@
+.flex-container {
+  display: flex;
+  flex-direction: column; 
+  height: 100%;
+}
+
+#morning {
+  color: #303030;
+  background-image: url(https://www.joshmorony.com/media/2016/05/sun.png), 
+  linear-gradient(#81cdc4, #81cdc4 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: -60% -40%, center;
+}
+
+#evening {
+  color: #81cdc4;
+  background-image: url(https://www.joshmorony.com/media/2016/05/moon.png), 
+  linear-gradient(#303030, #303030 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 180% -50%, center;
+}
+
+.flex-div {
+  text-align: center;
+  width: 100%;
+  height: 45vh;
+}
+

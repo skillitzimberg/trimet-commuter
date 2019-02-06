@@ -2,18 +2,25 @@
 
   <!-- Save above. Below 'div' only used for morning/evning style testing -->
 
-<div class="app-view" id="morning">
+<div class="app-view" id="morning" *ngIf="user">
 
+
+  
+  
+  
   <section class="stop-info">
-    <p id="stop-description">SE 7th and Everett this is a longer stop name</p>
     <p id="stop-id">Stop ID: 70983</p>
+    <p id="stop-description">SE 7th and Everett</p>
+  </section>
+  
+  <section class='quick-input'>
+    <button class="quick-button" (click)="doSomething()">Set</button>
+    <input type="number" placeholder="XXXX">
   </section>
 
   <section class="upcoming-status-bar">
-    <div>
       <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"></div>
       <div id="line"></div>
-    </div>
   </section>
 
   <section class="upcoming-status-accordion">
@@ -28,5 +35,5 @@
     </mat-accordion>
   </section>
 
-
 </div>
+

@@ -23,6 +23,7 @@ import { PancakeMenuComponent } from './pancake-menu/pancake-menu.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { RecentSearchComponent } from './recent-search/recent-search.component';
 import { TestComponent } from './test/test.component';
+import { StartupComponent } from './startup/startup.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -41,7 +42,8 @@ export const firebaseConfig = {
     PancakeMenuComponent,
     SideBarComponent,
     RecentSearchComponent,
-    TestComponent
+    TestComponent,
+    StartupComponent
   ],
   imports: [
     // MaterialUiModule, // DEPRICATED: remove ALL contents from: ./material-ui/
