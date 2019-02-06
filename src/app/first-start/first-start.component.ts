@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service'
 
 @Component({
@@ -8,18 +10,35 @@ import { UserDataService } from '../user-data.service'
   providers: [ UserDataService ]
 })
 export class FirstStartComponent implements OnInit {
-
-  constructor( public userDataService: UserDataService ) {
+  constructor( 
+    private authService: AuthService, 
+    private userDataService: UserDataService
+    ) {
    }
 
+   morningId: number;
+   eveningId: number;
+
   ngOnInit() {
+    this.authService.user.subscribe( (user) => {
+      if (user) {
+        this.userDataService.userData.subscribe( (userData) => {
+          this.morningId = userData['morning'];
+          this.eveningId = userData['evening'];
+        });
+      } else { 
+        this.morningId = null;
+        this.eveningId = null;
+      }
+    });
   }
 
   saveMorningStop(stopId) {
-    this.userDataService.saveMorningStop(parseInt(stopId));
+    if (this.morningId) { this.userDataService.saveMorningStop(parseInt(stopId)); }
   }
 
   saveEveningStop(stopId) {
-    this.userDataService.saveEveningStop(parseInt(stopId));
+    if ( this.eveningId ) { this.userDataService.saveEveningStop(parseInt(stopId)); }
   }
+
 }

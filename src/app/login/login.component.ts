@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -7,24 +8,21 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css'],
   providers: [ AuthService ]
 })
+
 export class LoginComponent implements OnInit {
   @Output() messageNotification = new EventEmitter()
-  @Output() userLoggedOn = new EventEmitter();
-
-  user;
   showRegisterDiv: boolean = false;
   showLoginDiv: boolean = false;
+  user;
 
   constructor( private authService: AuthService ) { }
 
   ngOnInit() {
     this.authService.user.subscribe(user => {
-      this.user = user;
-
-      this.userLoggedOn.emit(this.user);
+      if (user) { this.user = user; }
+      else { this.user = null; }
     });
 
-    // this.messageNotification.subscribe(console.log('message changed'))
   }
 
   register(email: string, password: string, confirmPassword: string) {
@@ -39,15 +37,11 @@ export class LoginComponent implements OnInit {
   login(email: string, password: string) {
     this.authService.login(email, password);
     this.messageNotification.emit(`You've successfully logged on`);
-
-    this.userLoggedOn.emit(this.user);
   }
 
   logout() {
     this.authService.logout();
     this.messageNotification.emit(`You're now logged out.`);
-
-    this.userLoggedOn.emit(null);
   }
 
   showRegister() {
@@ -57,4 +51,5 @@ export class LoginComponent implements OnInit {
   showLogin() {
     this.showLoginDiv = this.showLoginDiv ? false: true;
   }
+
 }

@@ -19,7 +19,10 @@ export class TestComponent implements OnInit {
   stop: Stop;
   subscription;
 
-  constructor( public authService: AuthService, public userDataService: UserDataService, public stopService: StopService ) {
+  constructor( 
+    public authService: AuthService, 
+    public userDataService: UserDataService, 
+    public stopService: StopService ) {
     this.init();
   }
 

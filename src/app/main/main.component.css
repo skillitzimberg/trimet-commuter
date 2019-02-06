@@ -1,50 +1,90 @@
+
 .app-view {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  width: 100vw;
   height: 100vh;
 }
 
+/* Removes default margins from paragraph elements */
+p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+/* Formatting for view-switching button navigation bar */
 .status-switcher {
-  font-size: 0px
+  font-size: 0px;
+  align-self: center;
+  z-index: 2;
+  /* sets order of appearance for flex display */
+  order: 20;
 }
 
 .status-switcher button {
+  height: 60px;
+  width: 80px;
   background: #303030;
+  /* border: 1px solid white; */
 }
 
-.status-switcher button:hover {
-  background: #dadada;
+.status-switcher img {
+  height: 40px;
+  margin-top: 5px;
 }
 
-.header-logo {
-  margin-top: -50px;
-  margin-bottom: -200px;
-  align-self: center;
+#am {
+  border-radius: 40px 0px 0px 40px;
+  font-size: 40px;
+  text-align: center;
+
 }
+
+#pm {
+  font-size: 40px;
+  text-align: center;
+}
+
+#quick {
+  border-radius: 0px 40px 40px 0px;
+  font-size: 40px;
+  text-align: center;
+}
+
+/* Formatting for top text display */
+#stop-description {
+  font-size: 10vw;
+}
+
+#stop-id {
+  font-size: 6vw;
+}
+
 .stop-info {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  margin: 10px;
-  margin-top: 20px;
-  outline: 1px solid black;
-  color: #303030;
-}
-
-.stop-info p{
-  display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr;
   font-size: 40px;
   margin-top: 0px;
   margin-bottom: 0px;
-  /* margin-block-start: 0px;
-  margin-block-end: 0px; */
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(201, 76, 76, 0.1);
+
+  /* margin-block-start: 5px;
+  margin-block-end: 5px; */
+
+  order: 3;
 }
 
 #morning {
   color: #303030;
-  background-image: linear-gradient(#81cdc4, #81cdc4 100%);
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url(https://www.joshmorony.com/media/2016/05/sun.png), linear-gradient(#81cdc4, #81cdc4 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: 50% 5%, center;
 }
 
 #evening {
@@ -52,18 +92,24 @@
   background-image: url(https://www.joshmorony.com/media/2016/05/moon.png), 
   linear-gradient(#303030, #303030 100%);
   background-repeat: no-repeat, no-repeat;
-  background-position: 180% -50%, center;
+  background-position: 50% 5%, center;
 }
 
-.upcoming-status {
+.upcoming-status-bar {
   position: relative;
   padding: 25px;
+
+  order: 4;
 }
 
-.upcoming-status #line {
+.upcoming-status-bar #line {
   height: 4px;
   background :#dadada;
   z-index: 100;
+}
+
+.upcoming-status-accordion {
+  order: 5;
 }
 
 .vehicle {
@@ -76,9 +122,4 @@
   position: absolute;
   top: 9px;
   z-index: 200;
-}
-
-#main-train {
-  width: 20vh;
-  opacity: .5;
 }

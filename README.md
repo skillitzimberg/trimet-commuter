@@ -1,3 +1,11 @@
+## NOTES:
+
+* [AUTH SERVICE]
+  * issue- returns USER object when wrong credentials entered.
+  * expected behavior- does not return USER object
+* [USER DATA]
+  * request- missing 'formal stop' name
+
 # TrimetCommuter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.

@@ -3,28 +3,45 @@
   <div id='morning' class='flex-div'>
     <h1 class='scale-font'>AM</h1>
     <p>Save a stop ID for your morning route:</p>
-    <div class='button-input-bar'>
-      <button class="morning-button">+Save</button>
-      <input type="number" placeholder="XXXX">
+
+    <div class='button-input-bar' *ngIf="!morningId">
+      <button class="morning-button" (click)="saveMorningStop(morning.value)">set</button>
+      <input type="number" placeholder="XXXX" #morning>
     </div>
-    <div class="stop-details">
-      <p style="color #303030"><strong>Current: 7965</strong></p>
-      <p>5th and Washington</p>
+
+    <div *ngIf="morningId">
+      <div class='button-input-bar'>
+        <button class="morning-button" (click)="saveMorningStop(morning.value)">set</button>
+        <input type="number" placeholder="{{morningId}}" #morning>
+      </div>
+  
+      <div class="stop-details">
+        <p style="color: #303030;"><strong>Current: {{morningId}}</strong></p>
+        <p><em>morningName here</em></p>
+      </div>
     </div>
   </div>
 
   <div id='evening' class='flex-div'>
-
     <h1 class='scale-font'>PM</h1>
     <p>Save a stop ID for your evening route:</p>
-    <div class='button-input-bar'>
-      <button class="evening-button">+Save</button>
-      <input type="number" placeholder="XXXX">
+
+    <div class='button-input-bar' *ngIf="!eveningId">
+      <button class="morning-button" (click)="saveEveningStop(evening.value)">set</button>
+      <input type="number" placeholder="XXXX" #evening>
     </div>
-    <div class="stop-details">
-      <p style="color #81cdc4"><strong>Current: 7965</strong></p>
-      <p>SE 7th and Davis</p>
+
+    <div *ngIf="eveningId">
+      <div class='button-input-bar'>
+        <button class="evening-button" (click)="saveEveningStop(evening.value)">set</button>
+        <input type="number" placeholder="{{eveningId}}" #evening>
+      </div>
+      <div class="stop-details">
+        <p style="color: #81cdc4;"><strong>Current: {{eveningId}}</strong></p>
+        <p><em>eveningName here</em></p>
+      </div>
     </div>
+
   </div>
 
 </div>
