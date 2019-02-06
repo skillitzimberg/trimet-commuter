@@ -1,18 +1,11 @@
 <div class='flex-container test-box'>
-  <div class="">
-    <p>Morning: {{morningId}}</p>
-    <p>Evening: {{eveningId}}</p>
-    <p>Quick: {{quickId}}</p>
-    <p>Recents: {{recentIds}}</p>
-  </div>
-
   <div id='morning' class='flex-div'>
     <h2>Morning</h2>
     <div class='flex-item'>
       <input type="number" #morningStopId>
       <button type="submit" (click)="saveMorningStop(morningStopId.value); morningStopId.value=''" name="morningStopId">Save Stop</button>
     </div>
-    <button type="submit" (click)="getMorningData()" name="button">Get Stop Data</button>
+    <button type="submit" (click)="getMorningData()" name="button">Get Morning Stop Data</button>
   </div>
 
   <div id='evening' class='flex-div'>
@@ -21,13 +14,40 @@
       <input type="number" #eveningStopId>
       <button type="submit" (click)="saveEveningStop(eveningStopId.value); eveningStopId.value=''" name="eveningStopId">Save Stop</button>
     </div>
+    <button type="submit" (click)="getEveningData()" name="button">Get Evening Stop Data</button>
   </div>
 
-  <div id='evening' class='flex-div'>
+  <div id='quick' class='flex-div'>
     <div class="flex-item">
       <h2>Quick</h2>
       <input type="number" #quickStopId>
       <button type="submit" (click)="saveQuickStop(quickStopId.value); quickStopId.value=''" name="quickStopId">Save Stop</button>
     </div>
+    <button type="submit" (click)="getQuickData()" name="button">Get Quick Stop Data</button>
   </div>
+
+  <div class="">
+    <p>Morning: {{morningId}}</p>
+    <p>Evening: {{eveningId}}</p>
+    <p>Quick: {{quickId}}</p>
+    <p>Recents: {{recentIds}}</p>
+  </div>
+
+</div>
+<div>
+  <div *ngIf="stop" class="">
+    <div>
+      <span class="stopheader">{{stop.name}}</span>
+      <span class="stopheader">Stop: {{stop.stopId}}</span>
+      <span class="stopheader">{{stop.direction}}</span>
+    </div>
+  <div class="arrival-list">
+    <div class="arrival" *ngFor="let arrival of stop.arrivals">
+      <span>{{arrival.shortSign}}</span>
+      <span>Scheduled: {{arrival.scheduled}}</span>
+      <span>{{arrival.arrival}}</span>
+      <span>{{arrival.late}}</span>
+    </div>
+  </div>
+</div>
 </div>

@@ -2,6 +2,13 @@ import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { UserDataService } from './user-data.service';
 import { trimetApiKey } from './api-keys';
+import { Arrival } from './models/arrival.model';
+import { Stop } from './models/stop.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { interval } from 'rxjs';
+import { map, tap, flatMap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +19,7 @@ export class StopService {
   quickId: number;
 
 
-  constructor(public authService: AuthService, public userDataService: UserDataService) {
+  constructor(public authService: AuthService, public userDataService: UserDataService, private http: HttpClient) {
     this.init();
   }
 
@@ -47,12 +54,49 @@ export class StopService {
   }
 
   getStopData(stopId) {
-    const apiURL: string = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&json=true`;
+    const apiURL = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&minutes=30&json=true`;
 
-    fetch(apiURL).then((response) => {
-      return response.json();
-    }).then((responseData) => {
-      console.log(responseData);
+    const updateInterval = 1000;
+    const trimetInterval = 60000;
+    let trimetLastTime = 0;
+    let trimetResponse = {};
+
+    const counter = interval(updateInterval);
+    const updateStop = map((count) => {
+      const now = (new Date()).getTime();
+      const interval = now - trimetLastTime;
+      if(interval >= trimetInterval) {
+        trimetLastTime = now;
+        console.log("trimet");
+        return fetch(apiURL).then((response) => {
+          return response.json();
+        }).then((responseData) => {
+          trimetResponse = responseData;
+          return this.createStop(now, responseData);
+        });
+      } else {
+        console.log("updateStop");
+        return Promise.resolve(this.createStop(now, trimetResponse));
+      }
     });
+
+    return updateStop(counter);
+  }
+
+  createStop(currentTime, data) {
+    const arrivals: Arrival[] = [];
+
+    if (data && data.resultSet) {
+      if (data.resultSet.arrival) {
+        data.resultSet.arrival.forEach((arrivalData) => {
+          arrivals.push(new Arrival(currentTime, arrivalData));
+        });
+      }
+
+      if (data.resultSet.location) {
+        let stopData = data.resultSet.location[0] || {};
+        return new Stop(arrivals, stopData);
+        }
+    }
   }
 }

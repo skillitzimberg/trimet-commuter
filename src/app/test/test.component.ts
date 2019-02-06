@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service';
 import { StopService } from '../stop.service';
-
+import { Arrival } from '../models/arrival.model'
+import { Stop } from '../models/stop.model'
 
 @Component({
   selector: 'app-test',
@@ -15,6 +16,8 @@ export class TestComponent implements OnInit {
   eveningId: number;
   quickId: number;
   recentIds: number[];
+  stop: Stop;
+  subscription;
 
   constructor( public authService: AuthService, public userDataService: UserDataService, public stopService: StopService ) {
     this.init();
@@ -55,7 +58,33 @@ export class TestComponent implements OnInit {
     this.userDataService.saveQuickStop(parseInt(stopId));
   }
 
+  clearSubscription() {
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
+  }
+
+  subscribeToStop(observer) {
+    this.subscription = observer.subscribe((promise) => {
+      promise.then((stop) => {
+        this.stop = stop;
+      })
+    });
+  }
+
   getMorningData() {
-    this.stopService.getMorningData();
+    this.clearSubscription();
+    this.subscribeToStop(this.stopService.getMorningData());
+  }
+
+  getEveningData() {
+    this.clearSubscription();
+    this.subscribeToStop(this.stopService.getEveningData());
+  }
+
+  getQuickData() {
+    this.clearSubscription();
+    this.subscribeToStop(this.stopService.getQuickData());
   }
 }

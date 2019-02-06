@@ -5,3 +5,23 @@
 .test-box div {
   margin: 0.5em;
 }
+
+.arrival-list {
+  display: inline-block;
+}
+
+.arrival {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: #f8f8f8;
+  margin: 0.2em 1em;
+}
+
+.arrival span {
+  margin: 0.2em 0.6em;
+}
+
+.stopheader {
+  margin: 0 10px 5px;
+  font-size: 1.3em;
+}
