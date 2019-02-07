@@ -10,12 +10,21 @@ export class Arrival {
   constructor(queryTime, params) {
     const shortSign = params.shortSign || '';
     [this.line, this.dest] = this.splitShortSign(shortSign);
-    console.log(this.line);
     this.scheduled = '';
     this.arrivalMin = 0;
     this.arrivalSec = 0;
     this.late = 'No ETA';
-    this.type = (parseInt(this.line) ? 'bus' : 'max');
+
+    if (parseInt(this.line)) {
+      this.type = 'bus';
+    } else if (
+      this.line === 'Green' ||
+      this.line === 'Blue' ||
+      this.line === 'Red') {
+      this.type = 'max';
+    } else {
+      this.type = 'streetcar';
+    }
 
     if (params.scheduled) {
       const options = { hour: 'numeric', minute: '2-digit' };
@@ -44,8 +53,15 @@ export class Arrival {
     const regexTo = / to /i;
     const regexLineTo = / line to /i;
     const regexOtherCases = /^\d+[a-z]* +/i;
+    const regexStreetcarLine = /(a loop |b loop |ns line)/i;
+    const regexStreetcarDest = /(portland streetcar )(a loop |b loop |ns line )to /i;
 
-    if (regexLineTo.test(shortSign)) {
+    if (regexStreetcarLine.test(shortSign)) {
+      const number = shortSign.match(regexStreetcarLine)[0].trim();
+      const destination = shortSign.replace(regexStreetcarDest, '');
+      return [ number, destination ];
+
+    } else if (regexLineTo.test(shortSign)) {
       return shortSign.split(regexLineTo);
 
     } else if (regexTo.test(shortSign)) {
@@ -55,6 +71,7 @@ export class Arrival {
       const number = shortSign.match(regexOtherCases)[0].trim();
       const destination = shortSign.replace(regexOtherCases, '');
       return [ number, destination ];
+
     }
   }
 }
