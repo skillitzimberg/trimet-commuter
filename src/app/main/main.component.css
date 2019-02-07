@@ -121,6 +121,10 @@ p {
   border: 2px solid black;
 }
 
+#evening .upcoming-status-bar-am {
+  background-color: #81cdc4;
+}
+
 .upcoming-status-bar-am .stop {
   z-index: 999;
   margin-left: 0.5em;
@@ -193,6 +197,7 @@ mat-panel-description span {
 
 .max {
   border-radius: 50%;
+  color: #000000;
 }
 
 .max.blue {
@@ -219,6 +224,12 @@ mat-panel-description span {
   border-radius: 20%;
   background-color: #000000;
   color: #e8e8e8;
+}
+
+.streetcar {
+  border-radius: 20%;
+  background-color: #80c0ff;
+  color: #000000;
 }
 
 .hidden {

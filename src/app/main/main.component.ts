@@ -90,6 +90,8 @@ export class MainComponent implements OnInit {
       return 'M';
     } else if(type === 'bus') {
       return line;
+    } else if(type === 'streetcar') {
+      return 'S';
     }
     return '';
   }

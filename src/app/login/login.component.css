@@ -6,17 +6,18 @@ button {
   background: #303030;
   color: #FF962C;
   width: 100%;
-  line-height: 2em;   
+  line-height: 2em;
 }
 
 input {
+  box-sizing: border-box;
   width: 100%;
   display: block;
   border-radius: 40px;
   border: 1px solid rgb(232, 232, 232);
   font-size: 1.2em;
   background: rgb(237, 237, 237);
-  line-height: 2em;   
+  line-height: 2em;
   font-size: 1.2em;
   background-color: white;
   cursor: text;
@@ -28,14 +29,14 @@ input {
   text-align: center;
  }
 
- ::-moz-placeholder { 
-  text-align: center;
- } 
- 
- :-ms-input-placeholder { 
+ ::-moz-placeholder {
   text-align: center;
  }
- 
+
+ :-ms-input-placeholder {
+  text-align: center;
+ }
+
 .wrapper {
   padding: 5px;
 }
@@ -49,7 +50,7 @@ input {
 }
 
 .auth-action h3 {
-  text-underline-position: under; 
+  text-underline-position: under;
   display: inline;
   color: #6565a5;
   cursor: pointer;
@@ -61,4 +62,12 @@ input {
 .logged-in {
   margin-top: auto;
   text-align: center;
+}
+
+.user-login input {
+  padding: 0 1em;
+}
+
+.user-login button {
+  padding: 0 1em;
 }
