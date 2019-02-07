@@ -10,8 +10,8 @@
 
 
     <section class="upcoming-status-bar-am">
-      <div><p style="color: #FF962C; z-index: 999">STOP</p></div>
-      <div *ngFor="let arrival of stop.arrivals" class="vehicle" [style.left]="getVehicleLeft(arrival.arrivalMin, arrival.arrivalSec)">
+      <div><p class="stop">STOP</p></div>
+      <div *ngFor="let arrival of stop.arrivals" [class]="getVehicleClass(arrival.type, arrival.line, arrival.arrivalMin, arrival.arrivalSec)" [style.left]="getVehicleLeft(arrival.arrivalMin, arrival.arrivalSec)">
         {{getIconText(arrival.type, arrival.line)}}
       </div>
       <div id="line"></div>

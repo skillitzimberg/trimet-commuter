@@ -71,6 +71,7 @@ export class StopService {
           return response.json();
         }).then((responseData) => {
           trimetResponse = responseData;
+          console.log(responseData);
           return this.createStop(now, responseData);
         });
       } else {

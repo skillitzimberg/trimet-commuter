@@ -39,7 +39,7 @@ export class MainComponent implements OnInit {
             } else if (this.mode === 'pm') {
               this.timeOfDay = 'evening'
               this.getEveningData();
-            } 
+            }
           });
         });
       }
@@ -82,7 +82,6 @@ export class MainComponent implements OnInit {
     if(type === 'max') {
       value += ' ' + line.toLowerCase();
     }
-    console.log("value", value);
     return value;
   }
 
@@ -93,6 +92,18 @@ export class MainComponent implements OnInit {
       return line;
     }
     return '';
+  }
+
+  getVehicleClass(type, line, min, sec) {
+    let value = 'vehicle';
+    value += ' ' + type;
+    if(type === 'max') {
+      value += ' ' + line.toLowerCase();
+    }
+    if((min >= 30) || (min <= 0) || ((min === 0) && (sec === 0)) ) {
+      value += ' hidden';
+    }
+    return value;
   }
 
   getVehicleLeft(min, sec) {
