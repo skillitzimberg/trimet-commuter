@@ -10,15 +10,16 @@ import { UserDataService } from '../user-data.service'
   providers: [ UserDataService ]
 })
 export class SetStopsComponent implements OnInit {
-  constructor( 
-    private authService: AuthService, 
+  constructor(
+    private authService: AuthService,
     private userDataService: UserDataService
     ) {
    }
 
    morningId: number;
    eveningId: number;
-   user; 
+   errorMessage: string = 'Please enter a stop id number.';
+   user;
 
   ngOnInit() {
     this.authService.user.subscribe( (user) => {
@@ -28,7 +29,7 @@ export class SetStopsComponent implements OnInit {
           this.morningId = userData['morning'];
           this.eveningId = userData['evening'];
         });
-      } else { 
+      } else {
         this.morningId = null;
         this.eveningId = null;
       }
@@ -36,11 +37,18 @@ export class SetStopsComponent implements OnInit {
   }
 
   saveMorningStop(stopId) {
-    if ( this.user ) { this.userDataService.saveMorningStop(parseInt(stopId)); }
+    if ( this.user && stopId ) {
+      this.userDataService.saveMorningStop(parseInt(stopId));
+    } else {
+      alert(this.errorMessage);
+    }
   }
 
   saveEveningStop(stopId) {
-    if ( this.user ) { this.userDataService.saveEveningStop(parseInt(stopId)); }
+    if ( this.user && stopId ) {
+      this.userDataService.saveEveningStop(parseInt(stopId));
+    } else {
+      alert(this.errorMessage);
+    }
   }
-
 }
