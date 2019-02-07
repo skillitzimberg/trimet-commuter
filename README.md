@@ -40,7 +40,7 @@ Here are some links in case you need information about setup for other operating
 ## Setup and Installation
 After making sure that you have everything you need from [SETUP.md](./SETUP.md) . . .
 
-Making the assumption that you know your way around Github, fork the repository from [GitHub](https://github.com/philrmass/trimet-commuter).  
+. . . fork the repository from [GitHub](https://github.com/philrmass/trimet-commuter).  
 
 Clone your forked repository to your computer.  
 
@@ -84,7 +84,9 @@ export const masterFirebaseConfig = {
 Go to [Trimet Developer Services](https://developer.trimet.org/appid/registration/) to register your app. Your application id will be emailed to you along with a link to confirm your registration.  
 
 This application uses [Arrivals Web Service V2](https://developer.trimet.org/ws_docs/arrivals2_ws.shtml) and the HTTP GET parameters style:
-"https://developer.trimet.org/ws/V1/arrivals?locIDs=6849,6850&appID=0000000000000000000000000".  
+```
+https://developer.trimet.org/ws/V1/arrivals?locIDs=6849,6850&appID=0000000000000000000000000
+```
 
  In the api-keys.ts file mentioned above save your trimet app id as:
 
