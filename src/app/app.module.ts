@@ -23,8 +23,6 @@ import { PancakeMenuComponent } from './pancake-menu/pancake-menu.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SetStopsComponent } from './set-stops/set-stops.component';
 import { TestComponent } from './test/test.component';
-// import { RecentSearchComponent } from './recent-search/recent-search.component';
-
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -42,7 +40,6 @@ export const firebaseConfig = {
     LoginComponent,
     PancakeMenuComponent,
     SideBarComponent,
-    // RecentSearchComponent,
     TestComponent,
     StartupComponent
   ],
