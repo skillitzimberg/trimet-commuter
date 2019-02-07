@@ -20,6 +20,7 @@ export class Arrival {
     } else if (
       this.line === 'Green' ||
       this.line === 'Blue' ||
+      this.line === 'Orange' ||
       this.line === 'Red') {
       this.type = 'max';
     } else {
