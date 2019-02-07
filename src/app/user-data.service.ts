@@ -19,7 +19,6 @@ export class UserDataService {
    init() {
      this.authService.user.subscribe((user) => {
        this.user = user;
-       console.log("user", user && user.uid);
        if(this.user) {
          this.userData = this.db.object(user.uid).valueChanges();
        } else {
