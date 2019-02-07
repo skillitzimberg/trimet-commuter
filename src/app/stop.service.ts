@@ -69,15 +69,14 @@ export class StopService {
       const interval = now - trimetLastTime;
       if(interval >= trimetInterval) {
         trimetLastTime = now;
-        console.log("trimet");
         return fetch(apiURL).then((response) => {
           return response.json();
         }).then((responseData) => {
+          console.log(responseData);
           trimetResponse = responseData;
           return this.createStop(now, responseData);
         });
       } else {
-        console.log("updateStop", trimetResponse);
         return Promise.resolve(this.createStop(now, trimetResponse));
       }
     });

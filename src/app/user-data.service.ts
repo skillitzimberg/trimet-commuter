@@ -70,7 +70,6 @@ export class UserDataService {
      return fetch(apiURL).then((response) => {
        return response.json();
      }).then((responseData) => {
-       console.log(responseData);
        return (responseData && responseData.resultSet && responseData.resultSet.location && responseData.resultSet.location[0] &&  responseData.resultSet.location[0].desc) || '';
      });
    }
