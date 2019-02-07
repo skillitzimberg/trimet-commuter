@@ -21,7 +21,9 @@
   </section> -->
 
     <section class="upcoming-status-bar-am">
-      <div *ngFor="let arrival of stop.arrivals" class="vehicle" [style.left]="getAccordianPercentage(arrival.arrivalMin, arrival.arrivalSec)" (mouseenter)="highlightAccordian(arrival)"></div>
+      <div *ngFor="let arrival of stop.arrivals" class="vehicle" [style.left]="getVehicleLeft(arrival.arrivalMin, arrival.arrivalSec)">
+        {{getIconText(arrival.type, arrival.line)}}
+      </div>
       <div id="line"></div>
     </section>
 

@@ -78,16 +78,6 @@ export class MainComponent implements OnInit {
     this.subscribeToStop(this.stopService.getQuickData());
   }
 
-  getAccordianPercentage(min, sec) {
-    const total = 30;
-    const time = min + (sec / 60);
-    return `${Math.round(100 * (time / total))}%`
-  }
-
-  highlightAccordian(arrival) {
-    console.log("mouse over", arrival);
-  }
-
   getIconClass(type, line) {
     let value = 'icon';
     value += ' ' + type;
@@ -104,7 +94,12 @@ export class MainComponent implements OnInit {
     } else if(type === 'bus') {
       return line;
     }
-
     return '';
+  }
+
+  getVehicleLeft(min, sec) {
+    const total = 30;
+    const time = min + (sec / 60);
+    return `${Math.round(100 * (time / total))}%`
   }
 }

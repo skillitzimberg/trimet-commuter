@@ -60,20 +60,6 @@ p {
   order: 5;
 }
 
-.vehicle {
-  cursor: pointer;
-  border-radius: 100%;
-  height: 2.5em;
-  width: 2.5em;
-  /* background:#85ff66a8; */
-  background-image: url(../../assets/img/train-am.svg);
-  /* filter: invert(.5); */
-  position: absolute;
-  top: 9px;
-  z-index: 200;
-}
-
-
 #morning {
   color: #303030;
   background-image: url(https://www.joshmorony.com/media/2016/05/sun.png), linear-gradient(#81cdc4, #81cdc4 100%);
@@ -125,8 +111,6 @@ p {
   border-width: 0px;
 }
 
-
-
 .upcoming-status-bar-am {
   /* visibility: hidden; */
   position: relative;
@@ -162,6 +146,16 @@ mat-panel-description span {
   text-align: center;
   line-height: 2.5em;
   font-weight: bold;
+}
+
+.vehicle {
+  transform: translate(0, -45%);
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  cursor: pointer;
+  background-color: #ddd;
+  z-index: 200;
 }
 
 .max {
