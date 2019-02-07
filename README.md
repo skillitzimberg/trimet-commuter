@@ -2,6 +2,10 @@
 
 ![](screenshots/HomeScreen.png)
 
+TriMet Commuter is a light TriMet transit tool. Enter your daily morning and evening stops. TriMet Commuter will display vehicles arriving at these stops within 30 minutes, their arrival times, status (late, on time, etc.). Between midnight and noon your morning stop data will display; between noon and midnight you'll see your evening stop.
+
+The Quick Stop feature allows you to get arrivals for a stop that may not be a part of your normal commute/routine. Quick Stop will save the last 5 searches you've made.
+
 You can see the current state of the project deployed [here](https://trimet-commuter.firebaseapp.com).
 
 ### Authors
@@ -116,6 +120,8 @@ Your default browser should open a new window or tab with the website/app ready 
   * expected behavior- does not return USER object
 * [USER DATA]
   * request- missing 'formal stop' name
+* [QUICK STOP - RECENTS]
+  * should not store a searched stop if that stop is already in recents
 
 ## Acknowledgements
 
@@ -130,16 +136,14 @@ For versions and a full list of dependencies, plugins, and scripts see [package.
 
 | Dependency | Description |
 | --- | --- |
-| @angular/fire | library for connecting Firebase with Angular |
-| firebase | library for working with Firebase |
-| jasmine-core | JavaScript BDD testing framework |
-| jasmine-spec-reporter | Allows Jasmine specs to be run |
-| karma | Allows the execution of JavaScript code in multiple *real* browsers |
-| karma-chrome-launcher | Launcher for Google Chrome, Google Chrome Canary, and Google Chromium |
-| karma-coverage-istanbul-reporter | Launcher for Google Chrome, Google Chrome Canary, and Google Chromium |
-| karma-jasmine | Plugin - adapter for Jasmine testing framework |
-| karma-jasmine-html-reporter | Dynamically shows test results at debug.html page |
-| tslint | Identifies and reports on patterns found in Javscript code |
+| @angular/cli | CLI tools for Angular |
+| @angular/fire | Firebase JavaScript library for web and Node.js |
+| @angular/material | UI components built with Angular and TypeScript |
+| Firebase | library for working with Firebase |
+| Node | JavaScript runtime built on Chrome's V8 JavaScript engine. |
+| Node Package Manager | package manager for JavaScript |
+| RxJS | Reactive Extensions for modern JavaScript |
+| tslint | An extensible static analysis linter for the TypeScript language |
 
 ## License
 Licensed under the MIT license.
