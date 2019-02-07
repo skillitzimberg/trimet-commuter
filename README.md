@@ -109,7 +109,6 @@ ng serve --open
 ```
 Your default browser should open a new window or tab with the website/app ready to use at [localhost:4200](localhost:4200).  
 
-## Acknowledgements
 
 ## Known Bugs
 * [AUTH SERVICE]
@@ -117,6 +116,8 @@ Your default browser should open a new window or tab with the website/app ready 
   * expected behavior- does not return USER object
 * [USER DATA]
   * request- missing 'formal stop' name
+
+## Acknowledgements
 
 ## Support
 Scott Bergler :: commandinghands@gmail.com  
