@@ -17,11 +17,11 @@ p {
 
 /* Formatting for top text display */
 #stop-description {
-  font-size: 10vw;
+  font-size: 6vw;
 }
 
 #stop-id {
-  font-size: 6vw;
+  font-size: 4vw;
 }
 
 .stop-info {
@@ -83,7 +83,7 @@ p {
 
 #evening {
   color: #81cdc4;
-  background-image: url(https://www.joshmorony.com/media/2016/05/moon.png), 
+  background-image: url(https://www.joshmorony.com/media/2016/05/moon.png),
   linear-gradient(#303030, #303030 100%);
   background-repeat: no-repeat, no-repeat;
   background-position: 150% -10%, center;
@@ -145,4 +145,12 @@ p {
   height: 4px;
   background :#dadada;
   z-index: 100;
+}
+
+mat-panel-title span {
+  margin: 0.5em;
+}
+
+mat-panel-description span {
+  margin: 0.5em;
 }
