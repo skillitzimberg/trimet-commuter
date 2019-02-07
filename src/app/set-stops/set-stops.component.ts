@@ -4,12 +4,12 @@ import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service'
 
 @Component({
-  selector: 'app-first-start',
-  templateUrl: './first-start.component.html',
-  styleUrls: ['./first-start.component.css'],
+  selector: 'app-set-stops',
+  templateUrl: './set-stops.component.html',
+  styleUrls: ['./set-stops.component.css'],
   providers: [ UserDataService ]
 })
-export class FirstStartComponent implements OnInit {
+export class SetStopsComponent implements OnInit {
   constructor( 
     private authService: AuthService, 
     private userDataService: UserDataService
