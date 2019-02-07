@@ -43,7 +43,7 @@
     </div>
   <div class="arrival-list">
     <div class="arrival" *ngFor="let arrival of stop.arrivals">
-      <span>{{arrival.line}} To {{arrival.dest}}</span>
+      <span>{{arrival.line}} To {{arrival.dest}} _{{arrival.type}}_</span>
       <span>Scheduled: {{arrival.scheduled}}</span>
       <span>
         <span class="minutes">{{arrival.arrivalMin}} min</span>

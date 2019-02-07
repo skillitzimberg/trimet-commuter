@@ -5,17 +5,17 @@ export class Arrival {
   arrivalMin: number;
   arrivalSec: number;
   late: string;
+  type: string;
 
   constructor(queryTime, params) {
     const shortSign = params.shortSign || '';
     [this.line, this.dest] = this.splitShortSign(shortSign);
-    console.log(this.line);
-    console.log(this.dest);
     this.scheduled = '';
     this.arrivalMin = 0;
     this.arrivalSec = 0;
     this.late = 'No ETA';
-    
+    this.type = (parseInt(this.line) ? 'bus' : 'max');
+
     if (params.scheduled) {
       const options = { hour: 'numeric', minute: '2-digit' };
       const scheduledDate = new Date(params.scheduled);
