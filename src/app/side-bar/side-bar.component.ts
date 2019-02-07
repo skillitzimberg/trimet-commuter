@@ -2,14 +2,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgModule } from '@angular/core';
 
 import { AuthService } from '../auth.service';
-
 import { LoginComponent } from '../login/login.component';
-import { RecentSearchComponent } from '../recent-search/recent-search.component';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    RecentSearchComponent
+    LoginComponent
   ]
 })
 
