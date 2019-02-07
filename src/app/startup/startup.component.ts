@@ -26,6 +26,10 @@ export class StartupComponent implements OnInit {
 
           if ( data['evening'] && data['morning'] ) {
             this.route.navigate( ['main', this.timeOfDay()] );
+          } else if (( data['morning'] ) && (this.timeOfDay() === 'am')) { 
+            this.route.navigate( ['main', this.timeOfDay()] );
+          } else if (( data['evening'] ) && (this.timeOfDay() === 'pm')) { 
+            this.route.navigate( ['main', this.timeOfDay()] );
           } else { this.route.navigate( ['stops'] ); }
           
         });

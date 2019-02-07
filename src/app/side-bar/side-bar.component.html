@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar" (mouseleave)="hideBar()">
 
   <button class="close" (click)="closeNav()">
     <span >&times;</span>
@@ -10,7 +10,7 @@
       {{ sideBarMessage }}
     </div>
 
-    <div class="user-control">
+    <div class="user-control" *ngIf="user">
       <a class="button" [routerLink]="['stops']" >Set Stops</a>
       <hr>
     </div>
