@@ -5,6 +5,7 @@ These instructions assume you're using Mac OSx.
 
 Here are some links in case you need information about setup for other operating systems:  
 [Node JS](https://nodejs.org/en/);
+[Node via CLI](https://nodejs.org/en/download/package-manager/);
 [Angular](https://angular.io/);
 [Jasmine](https://jasmine.github.io/);
 [Karma](https://karma-runner.github.io/latest/index.html);
@@ -14,7 +15,7 @@ Here are some links in case you need information about setup for other operating
 You will need to have these tools installed on your machine. They may already be installed - see the 'Confirm installation' sections below.
 
 ### Install Node JS:
-This uses Homebrew:  
+This uses Homebrew:  (for other modes of installation see [Node via CLI](https://nodejs.org/en/download/package-manager/))
 
 ```
 $ brew install node
@@ -23,25 +24,21 @@ $ brew install node
 
 ```
 $ node -v
-(should return something like: v11.6.0)
+(should return something like: v11.9.0)
 
 $ npm -v
-(should return something like: 3.10.5)
+(should return something like: 6.7.0)
 ```
-### Install TypeScript:
-This uses Node Package Manager (npm) which was installed in the previous step:
-```
-$ npm install typescript -g
-```
+
 ### Confirm installation:
 ```
 $ tsc -v
 (should return something like: Version 2.1.4)
 ```
 
-### Install Angular:
+### Install Angular globally:
 ```
-$ npm install -g @angular/cli@1.6.5
+$ npm install -g @angular/cli
 ```
 
 ### Confirm installation:
@@ -57,15 +54,19 @@ You should get something like this in return:
 /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
                |___/
 
-Angular CLI: 1.6.5
+Angular CLI: 7.3.0
 Node: 8.8.1
 OS: darwin x64
 Angular:
 ...
 ```
+### Install TypeScript:
+This uses Node Package Manager (npm) which was installed in an earlier step:
+```
+$ npm install typescript -g
+```
 
 ### OPTIONAL :: Install the Atom-TypeScript package:
-
 ```
 $ apm install atom-typescript
 ```
