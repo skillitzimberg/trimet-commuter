@@ -67,6 +67,10 @@ p {
   border: 2px solid black;
 }
 
+#evening .upcoming-status-bar-am {
+  background-color: #81cdc4;
+}
+
 .upcoming-status-bar-am .stop {
   z-index: 999;
   margin-left: 0.5em;

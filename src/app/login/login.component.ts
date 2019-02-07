@@ -35,7 +35,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(email: string, password: string) {
-    this.authService.login(email, password);
+    const error = this.authService.login(email, password);
+    console.log("login error", error);
     this.messageNotification.emit(`You've successfully logged on`);
   }
 
