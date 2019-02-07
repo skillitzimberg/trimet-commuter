@@ -53,8 +53,6 @@ export class StopService {
     return this.getStopData(this.quickId);
   }
 
-
-
   getStopData(stopId) {
     const apiURL = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&minutes=30&json=true`;
 
@@ -72,7 +70,6 @@ export class StopService {
         return fetch(apiURL).then((response) => {
           return response.json();
         }).then((responseData) => {
-          console.log(responseData);
           trimetResponse = responseData;
           return this.createStop(now, responseData);
         });
