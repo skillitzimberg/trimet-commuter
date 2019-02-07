@@ -2,13 +2,13 @@
 
 ![](screenshots/HomeScreen.png)
 
-You can see the current state of my project deployed [here](https://trimet-commuter.firebaseapp.com).
+You can see the current state of the project deployed [here](https://trimet-commuter.firebaseapp.com).
 
 ### Authors
 Scott Bergler  
-Phil Mass
-Ralph Perdomo
-Jared Reando
+Phil Mass  
+Ralph Perdomo  
+Jared Reando  
 
 ## Table of contents
 **[Resources](#resources)**<br>
@@ -54,6 +54,7 @@ Open the project in a text editor like Atom or VS Code.
 #### Setup for Firebase database usage
 Go to [Firebase](https://firebase.google.com/).
 Set up an account for yourself. If you already have a Google or Gmail account, you already have access - just sign in.  
+
 Once you've created an account, you should be taken to a user dashboard area, with an option to Create a New Project. Select this option, provide a name for your new project, and select your Country/region from the drop-down menu.  
 
 You'll then be taken to an "Overview" area. Where you'll be offered three options:  
@@ -81,6 +82,7 @@ export const masterFirebaseConfig = {
 
 #### Setup for using the TriMet API
 Go to [Trimet Developer Services](https://developer.trimet.org/appid/registration/) to register your app. Your application id will be emailed to you along with a link to confirm your registration.  
+
 This application uses [Arrivals Web Service V2](https://developer.trimet.org/ws_docs/arrivals2_ws.shtml) and the HTTP GET parameters style:
 "https://developer.trimet.org/ws/V1/arrivals?locIDs=6849,6850&appID=0000000000000000000000000".  
 
@@ -108,7 +110,6 @@ Your default browser should open a new window or tab with the website/app ready 
 ## Acknowledgements
 
 ## Known Bugs
-## NOTES:
 * [AUTH SERVICE]
   * issue- returns USER object when wrong credentials entered.
   * expected behavior- does not return USER object
@@ -116,9 +117,9 @@ Your default browser should open a new window or tab with the website/app ready 
   * request- missing 'formal stop' name
 
 ## Support
-Scott Bergler :: commandinghands@gmail.com
-Phil Mass :: philrmass@gmail.com
-Ralph Perdomo :: ralph@perdomo.com
+Scott Bergler :: commandinghands@gmail.com  
+Phil Mass :: philrmass@gmail.com  
+Ralph Perdomo :: ralph@perdomo.com  
 Jared Reando :: 
 
 ## Technologies Used
@@ -141,4 +142,4 @@ For versions and a full list of dependencies, plugins, and scripts see [package.
 Licensed under the MIT license.
 
 ## Copyright
-Copyright (c) 2019 ** Scott Bergler; Phil Mass; Ralph Perdomo; Jared Reando **
+Copyright (c) 2019 **Scott Bergler; Phil Mass; Ralph Perdomo; Jared Reando**
