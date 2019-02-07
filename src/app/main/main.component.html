@@ -3,10 +3,6 @@
   <!-- Save above. Below 'div' only used for morning/evning style testing -->
 
 <div class="app-view" id="morning" *ngIf="user">
-
-
-  
-  
   
   <section class="stop-info">
     <p id="stop-id">Stop ID: 70983</p>
@@ -19,6 +15,11 @@
   </section>
 
   <section class="upcoming-status-bar">
+      <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"></div>
+      <div id="line"></div>
+  </section>
+
+  <section class="upcoming-status-bar-am">
       <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"></div>
       <div id="line"></div>
   </section>

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
-import { Location } from '@angular/common';
+// import { Location } from '@angular/common';
 import { AuthService } from '../auth.service'
+
+import { UserDataService } from '../user-data.service';
+import { StopService } from '../stop.service';
+import { Stop } from '../models/stop.model';
 
 @Component({
   selector: 'app-main',
@@ -11,6 +15,8 @@ import { AuthService } from '../auth.service'
 export class MainComponent implements OnInit {
   mode; 
   user;
+  subscription;
+  stop: Stop;
 
   timeOfDay: string = 'morning';
   // timeOfDay: string = 'evening';
@@ -33,7 +39,7 @@ export class MainComponent implements OnInit {
   },
   {
     id: '1c',
-    position: '99%',
+    position: '90%',
     timeAway: '23 mins',
     status: 'Train is on time'
   },
@@ -48,10 +54,13 @@ export class MainComponent implements OnInit {
 
   constructor( 
     private route: ActivatedRoute, 
-    private location: Location,
-    private authService: AuthService) { }
+    // private location: Location,
+    private authService: AuthService,
+    private userDataService: UserDataService,
+    private stopService: StopService) { }
 
   ngOnInit() { 
+    this.getMorningData();
     this.route.params.subscribe( (url) => {
       switch ( url['mode'] ) {
         case 'am':
@@ -59,6 +68,7 @@ export class MainComponent implements OnInit {
           break;
         case 'pm':
           this.mode = 'pm';
+          //this.getMorningData()
           break;
         case 'quick':
           this.mode = 'quick';
@@ -69,7 +79,16 @@ export class MainComponent implements OnInit {
     });
 
     this.authService.user.subscribe((user) => { 
-      if (user) { this.user = user }
+      if (user) { 
+        this.user = user;
+        this.userDataService.userData.subscribe(( data ) => {
+          if ( data ) {
+
+          }
+        })
+
+      
+      }
       else { this.user = null}
     })
 
@@ -84,6 +103,31 @@ export class MainComponent implements OnInit {
 
   doSomething() {
     console.log('opened!')
+  }
+
+  getMorningData() {
+    console.log("getmorn");
+    this.clearSubscription();
+    this.subscribeToStop(this.stopService.getMorningData());
+  }
+
+  subscribeToStop(observer) {
+    this.subscription = observer.subscribe((promise) => {
+      console.log("sub stop", promise)
+      promise.then((stop) => {
+        console.log("prom stop", stop);
+        this.stop = stop;
+      })
+    });
+  }
+
+
+
+  clearSubscription() {
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
   }
 
 }

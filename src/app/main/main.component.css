@@ -66,11 +66,13 @@ p {
   height: 2.5em;
   width: 2.5em;
   /* background:#85ff66a8; */
-  background-image: url(../../assets/img/train.svg);
+  background-image: url(../../assets/img/train-am.svg);
+  /* filter: invert(.5); */
   position: absolute;
   top: 9px;
   z-index: 200;
 }
+
 
 #morning {
   color: #303030;
@@ -121,4 +123,26 @@ p {
   font-size: 3vh;
   text-align: center;
   border-width: 0px;
+}
+
+
+
+.upcoming-status-bar-am {
+  /* visibility: hidden; */
+  position: relative;
+  padding: 25px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  order: 4;
+  flex-grow: 0;
+  background: #303030;
+  border-radius: 40px;
+  border: 2px solid black;
+  filter: invert(.2);
+}
+
+.upcoming-status-bar-am #line {
+  height: 4px;
+  background :#dadada;
+  z-index: 100;
 }

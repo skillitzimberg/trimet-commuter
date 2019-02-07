@@ -36,7 +36,7 @@ export class StartupComponent implements OnInit {
   }
 
   timeOfDay() {
-    if ( (new Date().getHours())  <= 12 ) {
+    if ( (new Date().getHours()) < 12 ) {
       return 'am';
     } else { return 'pm'; } 
   }
