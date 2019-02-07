@@ -11,4 +11,5 @@ export class AppComponent {
   toggleNav() {
     this.showNavSideBar = this.showNavSideBar ? false:true;
   }
+
 }
