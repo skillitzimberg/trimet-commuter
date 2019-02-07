@@ -17,14 +17,16 @@ export class AuthService {
 
   register(email: string, password: string) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-      console.log('error code:', error.code);
-      console.log('error message:', error.message);
-
+      console.log('register code:', error.code);
+      console.log('register message:', error.message);
     });
   }
 
   login(email: string, password: string) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      console.log('signin code:', error.code);
+      console.log('signin message:', error.message);
+    });
   }
 
   logout() {
