@@ -18,10 +18,12 @@ export class FirstStartComponent implements OnInit {
 
    morningId: number;
    eveningId: number;
+   user; 
 
   ngOnInit() {
     this.authService.user.subscribe( (user) => {
       if (user) {
+        this.user = user;
         this.userDataService.userData.subscribe( (userData) => {
           this.morningId = userData['morning'];
           this.eveningId = userData['evening'];
@@ -34,11 +36,11 @@ export class FirstStartComponent implements OnInit {
   }
 
   saveMorningStop(stopId) {
-    if (this.morningId) { this.userDataService.saveMorningStop(parseInt(stopId)); }
+    if ( this.user ) { this.userDataService.saveMorningStop(parseInt(stopId)); }
   }
 
   saveEveningStop(stopId) {
-    if ( this.eveningId ) { this.userDataService.saveEveningStop(parseInt(stopId)); }
+    if ( this.user ) { this.userDataService.saveEveningStop(parseInt(stopId)); }
   }
 
 }
