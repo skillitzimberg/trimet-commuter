@@ -5,16 +5,16 @@
     <p>Save a stop ID for your morning route:</p>
 
     <div class='button-input-bar' *ngIf="!morningId">
-      <button class="morning-button" (click)="saveMorningStop(morning.value)">set</button>
+      <button class="morning-button" (click)="saveMorningStop(morning.value); morning.value=''">set</button>
       <input type="number" placeholder="XXXX" #morning>
     </div>
 
     <div *ngIf="morningId">
       <div class='button-input-bar'>
-        <button class="morning-button" (click)="saveMorningStop(morning.value)">set</button>
+        <button class="morning-button" (click)="saveMorningStop(morning.value); morning.value=''">set</button>
         <input type="number" placeholder="{{morningId}}" #morning>
       </div>
-  
+
       <div class="stop-details">
         <p style="color: #303030;"><strong>Current: {{morningId}}</strong></p>
         <p><em>morningName here</em></p>
@@ -27,13 +27,13 @@
     <p>Save a stop ID for your evening route:</p>
 
     <div class='button-input-bar' *ngIf="!eveningId">
-      <button class="morning-button" (click)="saveEveningStop(evening.value)">set</button>
+      <button class="morning-button" (click)="saveEveningStop(evening.value); evening.value=''">set</button>
       <input type="number" placeholder="XXXX" #evening>
     </div>
 
     <div *ngIf="eveningId">
       <div class='button-input-bar'>
-        <button class="evening-button" (click)="saveEveningStop(evening.value)">set</button>
+        <button class="evening-button" (click)="saveEveningStop(evening.value); evening.value=''">set</button>
         <input type="number" placeholder="{{eveningId}}" #evening>
       </div>
       <div class="stop-details">
