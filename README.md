@@ -4,9 +4,7 @@
 
 TriMet Commuter is a light TriMet transit tool. Enter your daily morning and evening stops. TriMet Commuter will display vehicles arriving at these stops within 30 minutes, their arrival times, status (late, on time, etc.). Between midnight and noon your morning stop data will display; between noon and midnight you'll see your evening stop.
 
-The Quick Stop feature allows you to get arrivals for a stop that may not be a part of your normal commute/routine. Quick Stop will save the last 5 searches you've made.
-
-You can see the current state of the project deployed [here](https://trimet-commuter.firebaseapp.com).
+You can use project [here](https://trimet-commuter.firebaseapp.com).
 
 ### Authors
 Scott Bergler  
@@ -27,8 +25,6 @@ Jared Reando
 ## Resources
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
-
-[PROJECT PLANNING](./PLANNING.md): Outlines planning criteria, use cases, specifications, notes, and errata.
 
 See [SETUP.md](./SETUP.md) for details about tools you may need to install and use to work on and use this project on your Mac.  
 
@@ -92,11 +88,11 @@ This application uses [Arrivals Web Service V2](https://developer.trimet.org/ws_
 https://developer.trimet.org/ws/V1/arrivals?locIDs=6849,6850&appID=0000000000000000000000000
 ```
 
- In the api-keys.ts file mentioned above save your trimet app id as:
+In the api-keys.ts file mentioned above save your trimet app id as:
 
- ```
+```
  export const trimetApiKey = yourAPIkey;
- ```
+```
 Replace 'yourAPIkey' in the code above with the app id that was emailed to you.
 
 As with the Firebase api key above, you must name the TriMet app id "trimetApiKey" or else you'll have to rename it elsewhere in the code.
@@ -113,6 +109,8 @@ ng serve --open
 ```
 Your default browser should open a new window or tab with the website/app ready to use at [localhost:4200](localhost:4200).  
 
+## Future Features
+- The Quick Stop feature to get arrivals for a stop that may not be a part of your normal commute/routine. Quick Stop will save the last 5 searches made.
 
 ## Known Bugs
 * [AUTH SERVICE]
@@ -128,8 +126,8 @@ Your default browser should open a new window or tab with the website/app ready 
 ## Support
 Scott Bergler :: commandinghands@gmail.com  
 Phil Mass :: philrmass@gmail.com  
-Ralph Perdomo :: ralph@perdomo.com  
-Jared Reando :: 
+Ralph Perdomo :: pseudoralph@gmail.com  
+Jared Reando :: jaredreando@gmail.com
 
 ## Technologies Used
 For versions and a full list of dependencies, plugins, and scripts see [package.json](./package.json).  
@@ -143,7 +141,7 @@ For versions and a full list of dependencies, plugins, and scripts see [package.
 | Node | JavaScript runtime built on Chrome's V8 JavaScript engine. |
 | Node Package Manager | package manager for JavaScript |
 | RxJS | Reactive Extensions for modern JavaScript |
-| tslint | An extensible static analysis linter for the TypeScript language |
+| TSLint | An extensible static analysis linter for the TypeScript language |
 
 ## License
 Licensed under the MIT license.
