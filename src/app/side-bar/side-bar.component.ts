@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AuthService } from '../auth.service';
 import { LoginComponent } from '../login/login.component';
+// import { clearInterval } from 'timers';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ export class SideBarComponent implements OnInit {
 
   @Output() toggleNav = new EventEmitter()
   
+  hideInterrupted;
+  pendingHide; 
   sideBarMessage;
   user;
 
@@ -42,5 +45,14 @@ export class SideBarComponent implements OnInit {
       clearInterval(autoClearNotification);
     },3000);
   }
+
+  hideBar() {
+    setTimeout( () => { this.closeNav() }, 333);
+
+
+  }
+
+
+ 
 
 }

@@ -15,7 +15,7 @@
   height: 100%;
   width: 33%;
   min-width: 330px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, .90);
   border-right: 1px solid rgb(193, 193, 193);
   z-index: 999;
 }
@@ -33,12 +33,12 @@ a.button {
   display: block;
   cursor: pointer;
   border-radius: 40px;
-  border: 1px solid rgb(232, 232, 232);
+  border: 1px solid rgb(0, 0, 0);
   font-size: 1.2em;
-  background: rgb(237, 237, 237);
+  background: #303030;
   line-height: 2.18em;   
   text-align: center;
-  color: black;
+  color: #FF962C;
   text-decoration: none;
 }
 

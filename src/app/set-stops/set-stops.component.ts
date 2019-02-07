@@ -18,7 +18,11 @@ export class SetStopsComponent implements OnInit {
 
    morningId: number;
    eveningId: number;
+   morningName: string;
+   eveningName: string;
+
    errorMessage: string = 'Please enter a stop id number.';
+
    user;
 
   ngOnInit() {
@@ -27,11 +31,16 @@ export class SetStopsComponent implements OnInit {
         this.user = user;
         this.userDataService.userData.subscribe( (userData) => {
           this.morningId = userData['morning'];
+          this.morningName = userData['morningName'];
+
           this.eveningId = userData['evening'];
+          this.eveningName = userData['eveningName'];
         });
       } else {
         this.morningId = null;
         this.eveningId = null;
+        this.morningName = null;
+        this.eveningName = null;
       }
     });
   }
