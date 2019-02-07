@@ -1,16 +1,15 @@
-
-
-<div class='flex-container'>
-
-    <div id='morning' class='flex-div'>
-      <p *ngIf="user">user is logged in!</p>
-   &nbsp;
-    </div>
-  
-    <div id='evening' class='flex-div'>
-        &nbsp;  
-    </div>
-  
+<div class="no-user" *ngIf="!user">
+  <div class="message">
+    <h2>Please logon</h2>
   </div>
+</div>
+
+<div class="no-user" *ngIf="user">
+  <div class="message">
+    <h2>Loading...</h2>
+  </div>
+</div>
 
   
+
+

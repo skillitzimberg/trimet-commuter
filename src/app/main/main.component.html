@@ -1,3 +1,9 @@
+<div class="no-user" *ngIf="!user">
+  <div class="message">
+    <h2>Please logon</h2>
+  </div>
+</div>
+
 
 
 <div class="app-view" [id]="timeOfDay" *ngIf="user">
@@ -17,7 +23,7 @@
       <div id="line"></div>
     </section>
 
-    <section class="upcoming-status-accordion">
+    <!-- <section class="upcoming-status-accordion">
       <mat-accordion>
         <mat-expansion-panel *ngFor="let arrival of stop.arrivals">
           <mat-expansion-panel-header >
@@ -31,23 +37,25 @@
               <span>Status: {{arrival.late}}</span>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <!-- {{arrival.late}} -->
+          {{arrival.late}}
         </mat-expansion-panel>
       </mat-accordion>
-    </section>
+    </section>  -->
 
-    <table style="width:100%">
+    <table id="upcoming-status-table" style="width:100%">
       <tr>
-        <th>Icon</th>
-        <th>Arrival Line</th>
-        <th>Destination</th> 
-        <th>Scheduled Arrival</th>
-        <th>ETA</th>
+        <th id="tri-icon">Icon</th>
+        <th id="tri-arrival-line">Destination</th>
+        <th id="tri-destination">Scheduled Arrival</th> 
+        <th id="tri-scheduled-arrival">Estimated Arrival</th>
+        <th id="tri-status">Status</th>
       </tr>
       <tr *ngFor='let arrival of stop.arrivals'>
         <td [class]="getIconClass(arrival.type, arrival.line)">{{getIconText(arrival.type, arrival.line)}}</td>
-        <!-- <td>{{arrival.late}}</td> -->
+        <td class="destination">{{arrival.dest}}</td>
+        <td>{{arrival.scheduled}}</td>
         <td>{{arrival.arrivalMin}} min {{arrival.arrivalSec}} sec</td>
+        <td>{{arrival.late}}</td>
       </tr>
   
     </table>

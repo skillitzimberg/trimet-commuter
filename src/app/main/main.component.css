@@ -1,3 +1,57 @@
+#upcoming-status-table {
+  background-color: rgba(255,255,255,0.8);
+  color: #303030;
+  border-collapse: collapse;
+}
+
+table#upcoming-status-table tr:nth-child(even) {
+  background-color: #eee;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+table#upcoming-status-table tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#upcoming-status-table th {
+  background-color: #303030;
+  color: #f0efbe;
+}
+
+.no-user { 
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #81cdc4;
+}
+
+.no-user h2 {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  text-align: center;
+}
+
+#tri-icon {
+  width: 40px;
+  border: 1px solid black;
+  margin-right: 20px;
+}
+#tri-arrival-line {
+  width: calc(25vw - 15px);
+  border: 1px solid black;
+}
+#tri-destination{
+  width: calc(25vw - 15px);
+  border: 1px solid black;
+} 
+#tri-scheduled-arrival {
+  width: calc(25vw - 15px);
+  border: 1px solid black;
+}
+#tri-status {
+  width: calc(25vw - 15px);
+  border: 1px solid black;
+}
 
 .app-view {
   display: flex;
