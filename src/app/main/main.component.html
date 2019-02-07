@@ -2,7 +2,7 @@
 
 <!-- Save above. Below 'div' only used for morning/evning style testing -->
 
-<div class="app-view" id="evening" *ngIf="user">
+<div class="app-view" [id]="timeOfDay" *ngIf="user">
 
   <div *ngIf="stop">
     <section class="stop-info">
