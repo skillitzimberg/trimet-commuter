@@ -4,13 +4,6 @@ header {
   background: #303030;
 }
 
-flex-header {
-  height: 80px;
-  font-size: 0px;
-  display: flex;
-
-}
-
 img {
   height: 30px;
 }

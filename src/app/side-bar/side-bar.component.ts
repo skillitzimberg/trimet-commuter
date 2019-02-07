@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AuthService } from '../auth.service';
 import { LoginComponent } from '../login/login.component';
-// import { clearInterval } from 'timers';
 
 @NgModule({
   declarations: [
@@ -48,11 +47,6 @@ export class SideBarComponent implements OnInit {
 
   hideBar() {
     setTimeout( () => { this.closeNav() }, 333);
-
-
   }
-
-
- 
 
 }
