@@ -4,21 +4,22 @@ import { AuthService } from '../auth.service';
 import { UserDataService } from '../user-data.service'
 
 @Component({
-  selector: 'app-first-start',
-  templateUrl: './first-start.component.html',
-  styleUrls: ['./first-start.component.css'],
+  selector: 'app-set-stops',
+  templateUrl: './set-stops.component.html',
+  styleUrls: ['./set-stops.component.css'],
   providers: [ UserDataService ]
 })
-export class FirstStartComponent implements OnInit {
-  constructor( 
-    private authService: AuthService, 
+export class SetStopsComponent implements OnInit {
+  constructor(
+    private authService: AuthService,
     private userDataService: UserDataService
     ) {
    }
 
    morningId: number;
    eveningId: number;
-   user; 
+   errorMessage: string = 'Please enter a stop id number.';
+   user;
 
   ngOnInit() {
     this.authService.user.subscribe( (user) => {
@@ -28,7 +29,7 @@ export class FirstStartComponent implements OnInit {
           this.morningId = userData['morning'];
           this.eveningId = userData['evening'];
         });
-      } else { 
+      } else {
         this.morningId = null;
         this.eveningId = null;
       }
@@ -36,11 +37,18 @@ export class FirstStartComponent implements OnInit {
   }
 
   saveMorningStop(stopId) {
-    if ( this.user ) { this.userDataService.saveMorningStop(parseInt(stopId)); }
+    if ( this.user && stopId ) {
+      this.userDataService.saveMorningStop(parseInt(stopId));
+    } else {
+      alert(this.errorMessage);
+    }
   }
 
   saveEveningStop(stopId) {
-    if ( this.user ) { this.userDataService.saveEveningStop(parseInt(stopId)); }
+    if ( this.user && stopId ) {
+      this.userDataService.saveEveningStop(parseInt(stopId));
+    } else {
+      alert(this.errorMessage);
+    }
   }
-
 }

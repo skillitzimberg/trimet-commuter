@@ -4,7 +4,7 @@
   flex-direction: column;
   /* justify-content: space-around; */
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 80px);
 }
 
 /* Removes default margins from paragraph elements */
@@ -31,9 +31,9 @@ p {
   margin-top: 0px;
   margin-bottom: 0px;
   padding-left: 30px;
-  padding-top: 100px;
-  padding-bottom: 50px;
-  background-color: rgba(255, 255, 255, 0.4);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
   flex-grow: 0;
   order: 3;
 }
@@ -50,6 +50,27 @@ p {
 }
 
 .upcoming-status-bar #line {
+  height: 4px;
+  background :#dadada;
+  z-index: 100;
+}
+
+.upcoming-status-bar-am {
+  /* visibility: hidden; */
+  width: 80vw;
+  /* margin-left: 25vw;
+  margin-right: 25vw; */
+  padding: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  order: 4;
+  background: #303030;
+  border-radius: 40px;
+  border: 2px solid black;
+  filter: invert(.2);
+}
+
+.upcoming-status-bar-am #line {
   height: 4px;
   background :#dadada;
   z-index: 100;
@@ -73,62 +94,6 @@ p {
   linear-gradient(#303030, #303030 100%);
   background-repeat: no-repeat, no-repeat;
   background-position: 150% -10%, center;
-}
-
-/* Everything below is formatting for the quick-entry button */
-.quick-input {
-  /* visibility: hidden; */
-  justify-content: center;
-  display: flex;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  height: 50px;
-  margin-bottom: 10px;
-  z-index: 999;
-}
-
-.quick-input button {
-  border-radius: 40px 0px 0px 40px;
-  font-size: 2.3vh;
-  border-right: none;
-  width: 100px;
-}
-
-.quick-input button:hover {
-  cursor: pointer;
-}
-
-.quick-button {
-  background: #303030;
-  color: #d7d7d7;
-}
-
-.quick-input input {
-  border-radius: 0px 40px 40px 0px;
-  width: 200px;
-  font-size: 3vh;
-  text-align: center;
-  border-width: 0px;
-}
-
-.upcoming-status-bar-am {
-  /* visibility: hidden; */
-  position: relative;
-  padding: 25px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  order: 4;
-  flex-grow: 0;
-  background: #303030;
-  border-radius: 40px;
-  border: 2px solid black;
-  filter: invert(.2);
-}
-
-.upcoming-status-bar-am #line {
-  height: 4px;
-  background :#dadada;
-  z-index: 100;
 }
 
 mat-panel-title span {

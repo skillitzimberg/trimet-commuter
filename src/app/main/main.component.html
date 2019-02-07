@@ -2,17 +2,12 @@
 
 <!-- Save above. Below 'div' only used for morning/evning style testing -->
 
-<div class="app-view" id="morning">
+<div class="app-view" [id]="timeOfDay" *ngIf="user">
 
   <div *ngIf="stop">
     <section class="stop-info">
       <p id="stop-id">Stop ID: {{stop.stopId}} - {{stop.direction}}</p>
       <p id="stop-description">{{stop.name}}</p>
-    </section>
-
-    <section class='quick-input'>
-      <button class="quick-button" (click)="doSomething()">Set</button>
-      <input type="number" placeholder="XXXX">
     </section>
 
     <!-- <section class="upcoming-status-bar">
@@ -21,6 +16,7 @@
   </section> -->
 
     <section class="upcoming-status-bar-am">
+      <div><p style="color: #FF962C; z-index: 999">STOP</p></div>
       <div *ngFor="let arrival of stop.arrivals" class="vehicle" [style.left]="getVehicleLeft(arrival.arrivalMin, arrival.arrivalSec)">
         {{getIconText(arrival.type, arrival.line)}}
       </div>
