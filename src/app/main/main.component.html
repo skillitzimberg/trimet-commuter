@@ -46,18 +46,18 @@
       <tr>
         <th id="tri-icon">Icon</th>
         <th id="tri-arrival-line">Destination</th>
-        <th id="tri-destination">Scheduled Arrival</th> 
+        <th id="tri-destination">Scheduled Arrival</th>
         <th id="tri-scheduled-arrival">Estimated Arrival</th>
         <th id="tri-status">Status</th>
       </tr>
       <tr *ngFor='let arrival of stop.arrivals'>
-        <td [class]="getIconClass(arrival.type, arrival.line)">{{getIconText(arrival.type, arrival.line)}}</td>
+        <td><div [class]="getIconClass(arrival.type, arrival.line)">{{getIconText(arrival.type, arrival.line)}}</div></td>
         <td class="destination">{{arrival.dest}}</td>
         <td>{{arrival.scheduled}}</td>
         <td>{{arrival.arrivalMin}} min {{arrival.arrivalSec}} sec</td>
         <td>{{arrival.late}}</td>
       </tr>
-  
+
     </table>
 
 
