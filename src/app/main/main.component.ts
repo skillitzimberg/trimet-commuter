@@ -87,4 +87,24 @@ export class MainComponent implements OnInit {
   highlightAccordian(arrival) {
     console.log("mouse over", arrival);
   }
+
+  getIconClass(type, line) {
+    let value = 'icon';
+    value += ' ' + type;
+    if(type === 'max') {
+      value += ' ' + line.toLowerCase();
+    }
+    console.log("value", value);
+    return value;
+  }
+
+  getIconText(type, line) {
+    if(type === 'max') {
+      return 'M';
+    } else if(type === 'bus') {
+      return line;
+    }
+
+    return '';
+  }
 }

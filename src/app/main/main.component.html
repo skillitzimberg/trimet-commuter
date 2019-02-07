@@ -30,9 +30,8 @@
         <mat-expansion-panel *ngFor="let arrival of stop.arrivals">
           <mat-expansion-panel-header >
             <mat-panel-title>
-              <span>🚆{{arrival.type}}</span>
-              <span> {{arrival.line}}</span>
-              <span> {{arrival.dest}}</span>
+              <div [class]="getIconClass(arrival.type, arrival.line)">{{getIconText(arrival.type, arrival.line)}}</div>
+              <span class="destination">{{arrival.dest}} - {{arrival.line}}</span>
             </mat-panel-title>
             <mat-panel-description>
               <span>Scheduled time: {{arrival.scheduled}}</span>

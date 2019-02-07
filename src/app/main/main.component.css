@@ -154,3 +154,42 @@ mat-panel-title span {
 mat-panel-description span {
   margin: 0.5em;
 }
+
+.icon {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #888;
+  text-align: center;
+  line-height: 2.5em;
+  font-weight: bold;
+}
+
+.max {
+  border-radius: 50%;
+}
+
+.max.blue {
+  background-color: #0f6aac;
+}
+
+.max.red {
+  background-color: #d31f43;
+}
+
+.max.green {
+  background-color: #028953;
+}
+
+.max.orange {
+  background-color: #d25d13;
+}
+
+.max.yellow {
+  background-color: #ffc524;
+}
+
+.bus {
+  border-radius: 20%;
+  background-color: #000000;
+  color: #e8e8e8;
+}
