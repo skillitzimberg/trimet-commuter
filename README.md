@@ -59,13 +59,13 @@ Open the project in a text editor like Atom or VS Code.
 Go to [Firebase](https://firebase.google.com/).
 Set up an account for yourself. If you already have a Google or Gmail account, you already have access - just sign in.  
 
-Once you've created an account, you should be taken to a user dashboard area, with an option to Create a New Project. Select this option, provide a name for your new project, and select your Country/region from the drop-down menu.  
+Once you're logged in, go to the [console](https://console.firebase.google.com/). Use the option to add a new project. Provide a name for your new project, and select your Country/region from the drop-down menu. Click "Create Project."
 
-You'll then be taken to an "Overview" area. Where you'll be offered three options:  
+You'll then be taken to an "Overview" area. Where you'll be offered three options to add Firebase for:  
 
-- Add Firebase to your iOS app
-- Add Firebase to your Android app
-- Add Firebase to your web app
+- iOS app (ios logo)
+- Android app (android logo)
+- web app (</>)
 
 Select Add Firebase to your web app. Firebase should respond with a pop-up modal window. Keep the information in this modal handy.  
 
