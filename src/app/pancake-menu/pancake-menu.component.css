@@ -1,11 +1,14 @@
 header {
   display: flex;
+  border-bottom: 10px solid black;
+  background: #303030;
 }
 
 flex-header {
-  height: 70px;
+  height: 80px;
   font-size: 0px;
   display: flex;
+
 }
 
 img {
@@ -14,7 +17,8 @@ img {
 
 .pancake-button {
   display: flex;
-  flex-grow: 4;
+  margin-left: 5px;
+  margin-right: calc(50vw - 121px);
 }
 
 /* Button bar for switching AM/PM views */
@@ -30,7 +34,7 @@ img {
   padding-bottom: 5px;
   background: #303030;
   /* border: 1px solid white; */
-  align-self: center;
+  /* align-self: center; */
 }
 
 .status-switcher img {
@@ -46,11 +50,6 @@ img {
 }
 
 #pm {
-  font-size: 40px;
-  text-align: center;
-}
-
-#quick {
   border-radius: 0px 40px 40px 0px;
   font-size: 40px;
   text-align: center;

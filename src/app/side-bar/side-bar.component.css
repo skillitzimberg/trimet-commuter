@@ -15,10 +15,31 @@
   height: 100%;
   width: 33%;
   min-width: 330px;
-  /* box-shadow: 3px; */
   background-color: white;
   border-right: 1px solid rgb(193, 193, 193);
   z-index: 999;
+}
+
+.user-control {
+  margin: 50px auto;
+  /* border-bottom: 1px solid rgb(193, 193, 193); */
+}
+
+.user-control hr {
+  margin-top: 30px;
+}
+
+a.button {
+  display: block;
+  cursor: pointer;
+  border-radius: 40px;
+  border: 1px solid rgb(232, 232, 232);
+  font-size: 1.2em;
+  background: rgb(237, 237, 237);
+  line-height: 2.18em;   
+  text-align: center;
+  color: black;
+  text-decoration: none;
 }
 
 .close {
