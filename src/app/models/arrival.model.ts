@@ -10,7 +10,6 @@ export class Arrival {
   constructor(queryTime, params) {
     const shortSign = params.shortSign || '';
     [this.line, this.dest] = this.splitShortSign(shortSign);
-    console.log(this.line);
     this.scheduled = '';
     this.arrivalMin = 0;
     this.arrivalSec = 0;
