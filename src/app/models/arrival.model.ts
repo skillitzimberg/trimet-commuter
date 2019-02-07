@@ -10,6 +10,7 @@ export class Arrival {
   constructor(queryTime, params) {
     const shortSign = params.shortSign || '';
     [this.line, this.dest] = this.splitShortSign(shortSign);
+    console.log(this.line);
     this.scheduled = '';
     this.arrivalMin = 0;
     this.arrivalSec = 0;
@@ -42,11 +43,14 @@ export class Arrival {
   splitShortSign(shortSign) {
     const regexTo = / to /i;
     const regexLineTo = / line to /i;
-    const regexOtherCases = /^\d+ +/i;
+    const regexOtherCases = /^\d+[a-z]* +/i;
+
     if (regexLineTo.test(shortSign)) {
       return shortSign.split(regexLineTo);
+
     } else if (regexTo.test(shortSign)) {
       return shortSign.split(regexTo);
+
     } else if (regexOtherCases.test(shortSign)) {
       const number = shortSign.match(regexOtherCases)[0].trim();
       const destination = shortSign.replace(regexOtherCases, '');
