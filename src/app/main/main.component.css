@@ -61,6 +61,7 @@ p {
   height: 3em;
   margin-top: 20px;
   margin-bottom: 20px;
+
   order: 4;
   background: #303030;
   border: 2px solid black;
@@ -92,6 +93,7 @@ p {
   background-image: url(https://www.joshmorony.com/media/2016/05/sun.png), linear-gradient(#81cdc4, #81cdc4 100%);
   background-repeat: no-repeat, no-repeat;
   background-position: 150% -10%, center;
+
 }
 
 #evening {
@@ -100,6 +102,14 @@ p {
   linear-gradient(#303030, #303030 100%);
   background-repeat: no-repeat, no-repeat;
   background-position: 150% -10%, center;
+}
+
+#evning .stop-info {
+  text-shadow:
+  -1px -1px 0 #303030,
+  1px -1px 0 #303030,
+  -1px 1px 0 #303030,
+  1px 1px 0 #303030;
 }
 
 mat-panel-title span {

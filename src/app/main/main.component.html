@@ -1,6 +1,4 @@
-<!-- <div class="app-view" [id]="timeOfDay"> -->
 
-<!-- Save above. Below 'div' only used for morning/evning style testing -->
 
 <div class="app-view" [id]="timeOfDay" *ngIf="user">
 
@@ -10,10 +8,6 @@
       <p id="stop-description">{{stop.name}}</p>
     </section>
 
-    <!-- <section class="upcoming-status-bar">
-    <div *ngFor="let train of trains" class="vehicle" [style.left]="train.position" (mouseenter)="highlightAccordian(train)"></div>
-    <div id="line"></div>
-  </section> -->
 
     <section class="upcoming-status-bar-am">
       <div><p class="stop">STOP</p></div>
@@ -37,9 +31,29 @@
               <span>Status: {{arrival.late}}</span>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          {{arrival.late}}
+          <!-- {{arrival.late}} -->
         </mat-expansion-panel>
       </mat-accordion>
     </section>
+
+    <table style="width:100%">
+      <tr>
+        <th>Icon</th>
+        <th>Arrival Line</th>
+        <th>Destination</th> 
+        <th>Scheduled Arrival</th>
+        <th>ETA</th>
+      </tr>
+      <tr *ngFor='let arrival of stop.arrivals'>
+        <td [class]="getIconClass(arrival.type, arrival.line)">{{getIconText(arrival.type, arrival.line)}}</td>
+        <!-- <td>{{arrival.late}}</td> -->
+        <td>{{arrival.arrivalMin}} min {{arrival.arrivalSec}} sec</td>
+      </tr>
+  
+    </table>
+
+
+
+
   </div>
 </div>

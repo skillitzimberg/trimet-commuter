@@ -1,9 +1,10 @@
 button {
   cursor: pointer;
   border-radius: 40px;
-  border: 1px solid rgb(232, 232, 232);
+  border: 1px solid rgb(0, 0, 0);
   font-size: 1.2em;
-  background: rgb(237, 237, 237);
+  background: #303030;
+  color: #FF962C;
   width: 100%;
   line-height: 2em;
 }

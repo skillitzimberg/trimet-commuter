@@ -54,7 +54,7 @@ export class StopService {
   }
 
   getStopData(stopId) {
-    const apiURL = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&minutes=30&json=true`;
+    const apiURL = `https://developer.trimet.org/ws/V1/arrivals?appID=${trimetApiKey}&locIDs=${stopId}&streetcar=true&minutes=30&json=true`;
 
     const updateInterval = 1000;
     const trimetInterval = 60000;
