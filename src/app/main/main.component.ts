@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
   mode;
   user;
   subscription;
+  timeOfDay;
   stop: Stop;
 
   constructor(
@@ -23,9 +24,6 @@ export class MainComponent implements OnInit {
     public userDataService: UserDataService,
     public stopService: StopService
   ) { }
-
-  // timeOfDay: string = 'morning';
-  // timeOfDay: string = 'evening';
 
   ngOnInit() {
     this.authService.user.subscribe((user) => {
@@ -36,12 +34,12 @@ export class MainComponent implements OnInit {
             const urlTime = url['mode'];
             this.mode = urlTime;
             if (this.mode === 'am') {
+              this.timeOfDay = 'morning'
               this.getMorningData();
             } else if (this.mode === 'pm') {
+              this.timeOfDay = 'evening'
               this.getEveningData();
-            } else if (this.mode === 'quick') {
-              this.getQuickData();
-            }
+            } 
           });
         });
       }
