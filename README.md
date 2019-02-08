@@ -80,6 +80,9 @@ export const masterFirebaseConfig = {
 
 **NOTE: The exported constant in the above code must be named masterFirebaseConfig. If you decide to rename it here you will need to find masterFirebaseConfig everywhere in the project and replace it with your constant's name.**
 
+#### Set up log in authorization
+From the console go to the authorization page. You'll see the options: Users, Sign-in method, Templates, Usage. Click on Sign-in method. Choose Email/Password. Enable the option that says, "Allow users to sign up using their email address and password."
+
 #### Setup for using the TriMet API
 Go to [Trimet Developer Services](https://developer.trimet.org/appid/registration/) to register your app. Your application id will be emailed to you along with a link to confirm your registration.  
 
@@ -91,7 +94,7 @@ https://developer.trimet.org/ws/V1/arrivals?locIDs=6849,6850&appID=0000000000000
 In the api-keys.ts file mentioned above save your trimet app id as:
 
 ```
- export const trimetApiKey = yourAPIkey;
+ export const trimetApiKey = 'yourAPIkey';
 ```
 Replace 'yourAPIkey' in the code above with the app id that was emailed to you.
 
